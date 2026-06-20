@@ -1,4 +1,8 @@
 {
+  "builds": [
+    { "src": "api/ssr.js", "use": "@vercel/node" },
+    { "src": "**", "use": "@vercel/static" }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/api/ssr.js" },
     { "source": "/index.html", "destination": "/api/ssr.js" }
