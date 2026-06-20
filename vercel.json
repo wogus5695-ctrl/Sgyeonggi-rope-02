@@ -1,9 +1,6 @@
 {
-  "builds": [
-    { "src": "index.html", "use": "@vercel/static" },
-    { "src": "sitemap-gyeonggi-south.html", "use": "@vercel/static" },
-    { "src": "css/**", "use": "@vercel/static" },
-    { "src": "js/**", "use": "@vercel/static" },
-    { "src": "images/**", "use": "@vercel/static" }
+  "rewrites": [
+    { "source": "/", "destination": "/api/ssr.js" },
+    { "source": "/index.html", "destination": "/api/ssr.js" }
   ]
 }
