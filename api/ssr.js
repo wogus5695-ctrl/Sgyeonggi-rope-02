@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = (req, res) => {
-  const htmlPath = path.join(process.cwd(), 'index.html');
+  const htmlPath = path.join(process.cwd(), 'template.html');
 
   fs.readFile(htmlPath, 'utf8', (err, html) => {
     if (err) {

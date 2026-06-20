@@ -26,7 +26,8 @@ const server = http.createServer((req, res) => {
   let urlPath = req.url.split('?')[0];
   if (urlPath === '/') urlPath = '/index.html';
 
-  const filePath = path.join(BASE_DIR, urlPath);
+  const diskPath = urlPath === '/index.html' ? '/template.html' : urlPath;
+  const filePath = path.join(BASE_DIR, diskPath);
 
   fs.exists(filePath, (exists) => {
     if (!exists) {
