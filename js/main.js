@@ -133,11 +133,11 @@ function initDynamicKeywords() {
     el.innerHTML = isDynamic ? `${regionTask} 재시공, 코킹했는데 다시 새는 이유는 뭔가요?` : `기존에 코킹했는데 다시 새는 이유는 뭔가요?`;
   });
 
-  // 8. 최종 CTA 제목: {지역명+작업명} 상담, 원인부터 빠르게 확인하세요
+  // 8. 최종 CTA 제목: {지역명+작업명} 상담, 원인부터 확인하세요
   document.querySelectorAll('[data-keyword="region-task-contact-pc"]').forEach(el => {
     el.innerHTML = isDynamic
-      ? `${regionTask} 상담, 원인부터 빠르게 확인하세요`
-      : `비 온 뒤 다시 젖는다면, 원인부터 확인하세요`;
+      ? `${regionTask} 상담, 원인부터 확인하세요`
+      : `비 온 뒤 또 젖는다면,<br><span class="mo-hide">이번엔 </span>원인부터 확인하세요`;
   });
 
   // 9. 최종 CTA consult 텍스트
