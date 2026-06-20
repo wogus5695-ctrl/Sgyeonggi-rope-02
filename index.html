@@ -28,9 +28,10 @@
   <!-- Header -->
   <header class="main-header">
     <div class="container header-container">
-      <a href="index.html" class="logo-link">
+      <a href="index.html" class="logo-link logo-group">
         <img src="images/logo.png" alt="레인가드 로고" class="logo-img">
-        <span class="logo-text">레인가드<span class="logo-sub">전문진단</span></span>
+        <span class="logo-text">레인가드</span>
+        <span class="logo-badge">전문진단</span>
       </a>
       
       <nav class="nav-links">
@@ -39,18 +40,24 @@
         <a href="#faq">자주 묻는 질문</a>
       </nav>
       
-      <div class="header-cta">
+      <!-- PC CTA (Desktop Only) -->
+      <div class="header-cta mo-hide">
         <a href="tel:010-4667-5568" class="btn-header company-phone-link">📞 <span class="company-phone">010-4667-5568</span></a>
-        <a href="tel:010-4667-5568" class="mobile-phone-btn company-phone-link pc-hide" aria-label="전화 상담">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.01l-2.2 2.21z" fill="currentColor"/></svg>
-        </a>
       </div>
       
-      <button class="mobile-menu-btn" aria-label="메뉴 토글">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <!-- Mobile Actions (Mobile Only) -->
+      <div class="header-actions-mobile pc-hide">
+        <a href="tel:010-4667-5568" class="mobile-phone-btn company-phone-link" aria-label="전화 상담">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.01l-2.2 2.21z" fill="currentColor"/></svg>
+        </a>
+        <div class="menu-btn-wrapper">
+          <button class="mobile-menu-btn" aria-label="메뉴 토글">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -67,10 +74,11 @@
         <!-- 브랜드명 (공통) -->
         <div class="hero-brand-label">레인가드</div>
         
-        <!-- H1: PC/MO 분기 렌더링 -->
+        <!-- H1: 단일 태그 최적화 구조 -->
         <h1 class="hero-title" data-keyword="region-task-h1">
-          <span class="pc-only-text">서울·경기 빗물누수·창틀코킹<br>전문 진단</span>
-          <span class="mo-only-text">서울·경기<br>빗물누수·창틀코킹 전문 진단</span>
+          <span class="h1-region">서울·경기</span>
+          <span class="h1-task">빗물누수·창틀코킹</span>
+          <span class="h1-suffix">전문 진단</span>
         </h1>
         
         <!-- 강조 문장 및 본문 (desc) -->
@@ -79,8 +87,7 @@
             <span class="pc-only-text">비 올 때만 보이는 창틀 주변 흔적, 겉면보다 유입 지점부터 확인합니다.</span>
             <span class="mo-only-text">외벽·샷시 틈으로 스며드는 빗물, 창틀 주변 흔적까지 함께 확인합니다.</span>
           </span>
-          <br class="pc-only-text">
-          <span class="pc-only-text">외벽 균열, 샷시 접합부, 기존 실리콘 상태를 함께 확인해 현장에 맞는 보수 방향을 안내합니다.</span>
+          <span class="hero-desc-text pc-only-text">외벽 균열, 샷시 접합부, 기존 실리콘 상태를 함께 확인해 현장에 맞는 보수 방향을 안내합니다.</span>
         </p>
         
         <!-- PC 전용 CTA 버튼 그룹 -->

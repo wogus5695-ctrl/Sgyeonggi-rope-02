@@ -93,11 +93,11 @@ function initDynamicKeywords() {
   }
 
   // 11개 섹션별 동적 바인딩 대응
-  // 1. Hero H1: PC/MO 분기 동적 매핑
+  // 1. Hero H1: 단일 태그 동적 매핑
   document.querySelectorAll('[data-keyword="region-task-h1"]').forEach(el => {
     el.innerHTML = isDynamic 
-      ? `<span class="pc-only-text">${regionTask}<br>전문 진단</span><span class="mo-only-text">${region} ${task}<br>전문 진단</span>`
-      : `<span class="pc-only-text">서울·경기 빗물누수·창틀코킹<br>전문 진단</span><span class="mo-only-text">서울·경기<br>빗물누수·창틀코킹 전문 진단</span>`;
+      ? `<span class="h1-region">${region}</span> <span class="h1-task">${task}</span> <span class="h1-suffix">전문 진단</span>`
+      : `<span class="h1-region">서울·경기</span> <span class="h1-task">빗물누수·창틀코킹</span> <span class="h1-suffix">전문 진단</span>`;
   });
 
   // 2. Hero 본문 및 설명: PC/MO 분기 동적 매핑 (Desc)
@@ -107,8 +107,7 @@ function initDynamicKeywords() {
         <span class="pc-only-text">비 올 때만 보이는 창틀 주변 흔적, 겉면보다 유입 지점부터 확인합니다.</span>
         <span class="mo-only-text">외벽·샷시 틈으로 스며드는 빗물, 창틀 주변 흔적까지 함께 확인합니다.</span>
       </span>
-      <br class="pc-only-text">
-      <span class="pc-only-text">외벽 균열, 샷시 접합부, 기존 실리콘 상태를 함께 확인해 현장에 맞는 보수 방향을 안내합니다.</span>
+      <span class="hero-desc-text pc-only-text">외벽 균열, 샷시 접합부, 기존 실리콘 상태를 함께 확인해 현장에 맞는 보수 방향을 안내합니다.</span>
     `;
   });
 
