@@ -2558,7 +2558,7 @@ button {
   }
 
   .symptoms-diagnostics-new {
-    order: 3;
+    display: none !important;
   }
 
   .symptoms-img-grid-new {
