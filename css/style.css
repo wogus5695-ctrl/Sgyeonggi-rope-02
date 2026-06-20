@@ -223,20 +223,17 @@ button {
   gap: 10px;
 }
 
-.logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--primary-light);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
-.logo-icon svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--primary-color);
+.footer-logo .logo-img {
+  width: 28px;
+  height: 28px;
 }
 
 .logo-text {
