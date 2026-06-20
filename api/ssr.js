@@ -12,8 +12,67 @@ const DEFAULT_META = {
 };
 
 /**
+ * 작업명별 문맥 특화 문장 반환
+ * @param {string} task - 허용된 작업명
+ * @param {string} regionTask - "지역명 작업명"
+ * @returns {{ hero: string, reLeakBox: string, processDesc: string, faq1Answer: string }}
+ */
+function getTaskContent(task, regionTask) {
+  switch (task) {
+    case '창틀코킹':
+      return {
+        hero: `${regionTask}, 기존 실리콘 상태와 접착면을 확인한 뒤 코킹 보수 방향을 안내합니다.`,
+        reLeakBox: `창틀코킹 보수 시 기존 실리콘의 들뜸과 접착면 상태를 먼저 확인하는 것이 중요합니다.`,
+        processDesc: `기존 실리콘 상태 확인 → 들뜸·경화 판단 → 덧방 또는 부분 제거 → 재코킹 → 마감 검수 순서로 진행합니다.`,
+        faq1Answer: `비가 온 뒤 창틀 하부에 물기가 남고 기존 실리콘이 들뜨거나 갈라졌다면 확인이 필요할 수 있습니다. 겉면에 덧바르기보다 접착면 상태를 먼저 확인하는 것이 좋습니다.`,
+      };
+    case '창틀누수':
+      return {
+        hero: `${regionTask}, 실내에 보이는 물기와 실제 유입 지점을 외벽·샷시 접합부까지 함께 확인합니다.`,
+        reLeakBox: `창틀누수는 실내 물기 위치와 실제 유입 지점이 다를 수 있어 외벽과 샷시 접합부를 함께 확인합니다.`,
+        processDesc: `증상 위치 확인 → 외벽·샷시 유입 경로 점검 → 실리콘 상태 확인 → 보수 범위 판단 → 마감 검수 순서로 진행합니다.`,
+        faq1Answer: `비가 온 뒤 창틀 하부나 벽지 주변에 물기가 남는다면 점검이 필요할 수 있습니다. 실내 물기 위치와 실제 유입 지점이 다를 수 있어 외벽·샷시 접합부도 함께 확인합니다.`,
+      };
+    case '빗물누수':
+      return {
+        hero: `${regionTask}, 비 올 때마다 반복되는 원인을 외벽·샷시·창틀 전체에서 확인합니다.`,
+        reLeakBox: `빗물누수는 외벽 균열, 샷시 접합부, 창틀 상부 등 복합 원인이 함께 있는 경우가 많습니다.`,
+        processDesc: `반복 구간 및 시점 확인 → 외벽·샷시·창틀 복합 점검 → 원인 범위 확인 → 상태별 보수 → 마감 검수 순서로 진행합니다.`,
+        faq1Answer: `비가 올 때마다 반복된다면 단순 실리콘 문제가 아닐 수 있습니다. 외벽 균열, 샷시 접합부, 창틀 상부 등 복합 원인을 함께 확인하는 것이 좋습니다.`,
+      };
+    case '창틀실리콘':
+      return {
+        hero: `${regionTask}, 기존 실리콘의 경화·들뜸 상태를 먼저 확인한 뒤 보수 범위를 판단합니다.`,
+        reLeakBox: `창틀실리콘 보수 시 겉면만 확인하기보다 기존 실리콘의 경화와 들뜸 상태를 먼저 점검합니다.`,
+        processDesc: `기존 실리콘 경화·들뜸 확인 → 접착면 상태 판단 → 부분 제거 또는 재시공 선택 → 재코킹 → 마감 검수 순서로 진행합니다.`,
+        faq1Answer: `비가 온 뒤 창틀 주변 물기가 남는다면 기존 실리콘의 경화나 들뜸 여부를 먼저 확인하는 것이 좋습니다. 겉면에 덧바르기보다 접착 상태를 먼저 점검합니다.`,
+      };
+    case '샷시실리콘':
+      return {
+        hero: `${regionTask}, 샷시 접합부와 프레임 틈 실리콘 상태를 함께 확인합니다.`,
+        reLeakBox: `샷시실리콘은 프레임 접합부와 외부 틈으로 빗물이 스며들 수 있어 접합부 상태 확인이 필요합니다.`,
+        processDesc: `샷시 접합부 상태 확인 → 프레임 틈 점검 → 외부 실리콘 상태 판단 → 접합면 재보수 → 마감 검수 순서로 진행합니다.`,
+        faq1Answer: `비가 온 뒤 창틀 주변이 젖는다면 샷시 접합부와 프레임 틈 실리콘 상태를 확인하는 것이 좋습니다. 외부 실리콘 틈으로 빗물이 스며드는 경우가 있습니다.`,
+      };
+    case '외벽보수':
+      return {
+        hero: `${regionTask}, 외벽 균열·줄눈 틈·마감 손상 여부를 함께 확인합니다.`,
+        reLeakBox: `외벽보수 시 창틀 주변만 보는 것이 아니라 균열·줄눈 틈·마감 손상 여부를 함께 확인합니다.`,
+        processDesc: `외벽 균열·크랙 위치 확인 → 줄눈 틈·마감 손상 점검 → 보수 범위 판단 → 상태별 보수 → 마감 검수 순서로 진행합니다.`,
+        faq1Answer: `비가 온 뒤 외벽이나 창틀 주변에 물기 흔적이 보인다면 균열·줄눈 틈·마감 손상 여부를 함께 확인하는 것이 좋습니다. 외벽에서 시작된 물길이 실내 벽지까지 이어지는 경우가 있습니다.`,
+      };
+    default:
+      return {
+        hero: `${regionTask}, 겉면보다 유입 지점부터 확인합니다.`,
+        reLeakBox: `${regionTask}도 보이는 흔적과 실제 유입 지점이 다를 수 있어, 원인 범위를 함께 확인합니다.`,
+        processDesc: `증상 확인 → 외벽·샷시 점검 → 기존 실리콘 확인 → 상태별 보수 → 마감 검수 순서로 진행합니다.`,
+        faq1Answer: `비가 온 뒤 창틀 하부나 벽지 주변에 물기가 남고, 외부 실리콘이 갈라졌다면 점검이 필요할 수 있습니다. 창틀뿐 아니라 외벽 균열과 샷시 접합부까지 함께 확인하는 것이 좋습니다.`,
+      };
+  }
+}
+
+/**
  * ?k=지역명-작업명 파라미터를 파싱하여 region, task 반환
- * 유효하지 않으면 null 반환
  */
 function parseKeyword(k) {
   if (!k) return null;
@@ -61,12 +120,10 @@ module.exports = (req, res) => {
     if (parsed) {
       const meta = buildDynamicMeta(parsed.region, parsed.task, rawK);
       const { region, task, regionTask } = meta;
+      const content = getTaskContent(task, regionTask);
 
       // ── 1. <title> ───────────────────────────────────────────────
-      html = html.replace(
-        /<title>[\s\S]*?<\/title>/,
-        `<title>${meta.title}</title>`
-      );
+      html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${meta.title}</title>`);
 
       // ── 2. <meta name="description"> ─────────────────────────────
       html = html.replace(
@@ -94,53 +151,55 @@ module.exports = (req, res) => {
         `$1${h1Content}$2`
       );
 
-      // ── 6. Hero 강조문 (PC) ───────────────────────────────────────
-      // "{지역명+작업명}, 겉면보다 유입 지점부터 확인합니다."
+      // ── 6. Hero 강조문 (PC) — 작업명별 문맥 ─────────────────────
       html = html.replace(
         /(<span[^>]*data-keyword="region-task-hero-highlight"[^>]*>)[\s\S]*?(<\/span>)/,
-        `$1${regionTask}, 겉면보다 유입 지점부터 확인합니다.$2`
+        `$1${content.hero}$2`
       );
 
-      // ── 7. 위험신호 섹션 하단 경고 (PC) ──────────────────────────
+      // ── 7. 위험신호 하단 경고 (PC) ───────────────────────────────
       html = html.replace(
         /(<p[^>]*data-keyword="region-task-symptom-warning"[^>]*>)[\s\S]*?(<\/p>)/,
         `$12가지 이상 해당된다면 창틀·샷시·외벽 주변 상태를 함께 확인하는 것이 좋습니다.$2`
       );
-      // 이 섹션은 기본 문구를 그대로 유지 (지역명 삽입 없이 자연스러움 우선)
-      // 아래 위험신호 박스 텍스트는 디자인상 짧게 유지
 
-      // ── 8. LEAK CAUSE MAP 강조 박스 ──────────────────────────────
-      // "{지역명+작업명}도 보이는 흔적과 실제 유입 지점이 다를 수 있습니다."
+      // ── 8. LEAK CAUSE MAP 강조 박스 — 작업명별 문맥 ─────────────
       html = html.replace(
         /(<p[^>]*data-keyword="region-task-releak-box"[^>]*>)[\s\S]*?(<\/p>)/,
-        `$1${regionTask}도 보이는 흔적과 실제 유입 지점이 다를 수 있어, 원인 범위를 함께 확인합니다.$2`
+        `$1${content.reLeakBox}$2`
       );
 
-      // ── 9. Portfolio section title ─────────────────────────────────
+      // ── 9. PROCESS 섹션 설명 — 작업명별 공정 흐름 ───────────────
+      html = html.replace(
+        /(<p[^>]*data-keyword="region-task-process-desc"[^>]*>)[\s\S]*?(<\/p>)/,
+        `$1${content.processDesc}$2`
+      );
+
+      // ── 10. Portfolio section title ────────────────────────────────
       html = html.replace(
         /(<h2[^>]*data-keyword="region-task-portfolio"[^>]*>)[\s\S]*?(<\/h2>)/,
         `$1${regionTask} 시공 사례$2`
       );
 
-      // ── 10. FAQ 1 질문 ────────────────────────────────────────────
+      // ── 11. FAQ 1 질문 ────────────────────────────────────────────
       html = html.replace(
         /(<span[^>]*data-keyword="region-task-faq1"[^>]*>)[\s\S]*?(<\/span>)/,
         `$1${regionTask}, 언제 점검이 필요할까요?$2`
       );
 
-      // ── 11. FAQ 1 답변 ────────────────────────────────────────────
+      // ── 12. FAQ 1 답변 — 작업명별 문맥 ──────────────────────────
       html = html.replace(
         /(<div[^>]*data-keyword="region-task-faq1-answer"[^>]*>)[\s\S]*?(<\/div>)/,
-        `$1\n                비가 온 뒤 창틀 하부나 벽지 주변에 물기가 남고, 외부 실리콘이 갈라졌다면 점검이 필요할 수 있습니다. 창틀뿐 아니라 외벽 균열과 샷시 접합부까지 함께 확인하는 것이 좋습니다.\n              $2`
+        `$1\n                ${content.faq1Answer}\n              $2`
       );
 
-      // ── 12. FAQ 3 질문 ────────────────────────────────────────────
+      // ── 13. FAQ 3 질문 ────────────────────────────────────────────
       html = html.replace(
         /(<span[^>]*data-keyword="region-task-faq3"[^>]*>)[\s\S]*?(<\/span>)/,
         `$1${regionTask} 재시공, 코킹했는데 다시 새는 이유는 뭔가요?$2`
       );
 
-      // ── 13. Contact CTA 제목 (PC) ─────────────────────────────────
+      // ── 14. Contact CTA 제목 (PC) ─────────────────────────────────
       html = html.replace(
         /(<h2[^>]*data-keyword="region-task-contact-pc"[^>]*>)[\s\S]*?(<\/h2>)/,
         `$1${regionTask} 상담, 원인부터 확인하세요$2`
