@@ -462,13 +462,14 @@
       <div class="portfolio-grid">
         <!-- Slider 1 -->
         <div class="portfolio-card">
-          <div class="slider-container">
+          <!-- PC Slider Area (Hidden on Mobile) -->
+          <div class="slider-container mo-hide">
             <!-- After Image (Base) -->
-            <img src="images/portfolio-01-after.jpg" alt="외벽 균열 보수 및 신규 실링 후" class="slider-img slider-after">
+            <img src="images/portfolio-01-after.jpg" alt="외벽 균열 보수 시공 후 사진" class="slider-img slider-after" loading="lazy">
             
             <!-- Before Image (Clipped) -->
             <div class="slider-before slider-img">
-              <img src="images/portfolio-01-before.jpg" alt="콘크리트 벽체 균열과 실리콘 박리 전" class="slider-img">
+              <img src="images/portfolio-01-before.jpg" alt="외벽 균열 보수 시공 전 사진" class="slider-img" loading="lazy">
             </div>
             
             <!-- Handle -->
@@ -479,6 +480,19 @@
             <!-- Labels -->
             <div class="slider-label before">시공 전</div>
             <div class="slider-label after">시공 후</div>
+          </div>
+
+          <!-- Mobile Toggle Area (Hidden on PC) -->
+          <div class="portfolio-mobile-image-area pc-hide">
+            <div class="portfolio-mobile-img-wrap">
+              <img src="images/portfolio-01-after.jpg" alt="외벽 균열 보수 시공 후 사진" class="portfolio-mobile-img active-img after-img" loading="lazy">
+              <img src="images/portfolio-01-before.jpg" alt="외벽 균열 보수 시공 전 사진" class="portfolio-mobile-img before-img" loading="lazy">
+            </div>
+            <!-- Toggle Buttons -->
+            <div class="portfolio-toggle-buttons">
+              <button type="button" class="toggle-btn before-btn" onclick="togglePortfolioImage(this, 'before')">시공 전</button>
+              <button type="button" class="toggle-btn after-btn active" onclick="togglePortfolioImage(this, 'after')">시공 후</button>
+            </div>
           </div>
           
           <div class="portfolio-info">
@@ -493,13 +507,14 @@
         
         <!-- Slider 2 -->
         <div class="portfolio-card">
-          <div class="slider-container">
+          <!-- PC Slider Area (Hidden on Mobile) -->
+          <div class="slider-container mo-hide">
             <!-- After Image (Base) -->
-            <img src="images/portfolio-02-after.jpg" alt="노후 실리콘 제거 후 기밀 마감 후" class="slider-img slider-after">
+            <img src="images/portfolio-02-after.jpg" alt="창틀 실리콘 재시공 후 사진" class="slider-img slider-after" loading="lazy">
             
             <!-- Before Image (Clipped) -->
             <div class="slider-before slider-img">
-              <img src="images/portfolio-02-before.jpg" alt="갈라지고 물새는 아파트 외부 실리콘 전" class="slider-img">
+              <img src="images/portfolio-02-before.jpg" alt="창틀 실리콘 재시공 전 사진" class="slider-img" loading="lazy">
             </div>
             
             <!-- Handle -->
@@ -510,6 +525,19 @@
             <!-- Labels -->
             <div class="slider-label before">시공 전</div>
             <div class="slider-label after">시공 후</div>
+          </div>
+
+          <!-- Mobile Toggle Area (Hidden on PC) -->
+          <div class="portfolio-mobile-image-area pc-hide">
+            <div class="portfolio-mobile-img-wrap">
+              <img src="images/portfolio-02-after.jpg" alt="창틀 실리콘 재시공 후 사진" class="portfolio-mobile-img active-img after-img" loading="lazy">
+              <img src="images/portfolio-02-before.jpg" alt="창틀 실리콘 재시공 전 사진" class="portfolio-mobile-img before-img" loading="lazy">
+            </div>
+            <!-- Toggle Buttons -->
+            <div class="portfolio-toggle-buttons">
+              <button type="button" class="toggle-btn before-btn" onclick="togglePortfolioImage(this, 'before')">시공 전</button>
+              <button type="button" class="toggle-btn after-btn active" onclick="togglePortfolioImage(this, 'after')">시공 후</button>
+            </div>
           </div>
           
           <div class="portfolio-info">
@@ -524,13 +552,14 @@
  
         <!-- Slider 3 -->
         <div class="portfolio-card">
-          <div class="slider-container">
+          <!-- PC Slider Area (Hidden on Mobile) -->
+          <div class="slider-container mo-hide">
             <!-- After Image (Base) -->
-            <img src="images/portfolio-03-after.jpg" alt="적벽돌 메움 및 실링 작업 후" class="slider-img slider-after">
+            <img src="images/portfolio-03-after.jpg" alt="샷시 접합부 보수 시공 후 사진" class="slider-img slider-after" loading="lazy">
             
             <!-- Before Image (Clipped) -->
             <div class="slider-before slider-img">
-              <img src="images/portfolio-03-before.jpg" alt="적돌 마감재 균열 및 물 비침 현상 전" class="slider-img">
+              <img src="images/portfolio-03-before.jpg" alt="샷시 접합부 보수 시공 전 사진" class="slider-img" loading="lazy">
             </div>
             
             <!-- Handle -->
@@ -541,6 +570,19 @@
             <!-- Labels -->
             <div class="slider-label before">시공 전</div>
             <div class="slider-label after">시공 후</div>
+          </div>
+
+          <!-- Mobile Toggle Area (Hidden on PC) -->
+          <div class="portfolio-mobile-image-area pc-hide">
+            <div class="portfolio-mobile-img-wrap">
+              <img src="images/portfolio-03-after.jpg" alt="샷시 접합부 보수 시공 후 사진" class="portfolio-mobile-img active-img after-img" loading="lazy">
+              <img src="images/portfolio-03-before.jpg" alt="샷시 접합부 보수 시공 전 사진" class="portfolio-mobile-img before-img" loading="lazy">
+            </div>
+            <!-- Toggle Buttons -->
+            <div class="portfolio-toggle-buttons">
+              <button type="button" class="toggle-btn before-btn" onclick="togglePortfolioImage(this, 'before')">시공 전</button>
+              <button type="button" class="toggle-btn after-btn active" onclick="togglePortfolioImage(this, 'after')">시공 후</button>
+            </div>
           </div>
           
           <div class="portfolio-info">

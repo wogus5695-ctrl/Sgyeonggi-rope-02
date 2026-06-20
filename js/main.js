@@ -347,3 +347,26 @@ function initHeaderScroll() {
     }
   });
 }
+
+/**
+ * 모바일 시공 사례 전후 이미지 토글 기능
+ */
+function togglePortfolioImage(buttonEl, state) {
+  const container = buttonEl.closest('.portfolio-mobile-image-area');
+  if (!container) return;
+
+  const buttons = container.querySelectorAll('.toggle-btn');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  buttonEl.classList.add('active');
+
+  const beforeImg = container.querySelector('.before-img');
+  const afterImg = container.querySelector('.after-img');
+
+  if (state === 'before') {
+    beforeImg.classList.add('active-img');
+    afterImg.classList.remove('active-img');
+  } else {
+    afterImg.classList.add('active-img');
+    beforeImg.classList.remove('active-img');
+  }
+}
