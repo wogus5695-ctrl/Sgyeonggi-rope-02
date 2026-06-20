@@ -78,6 +78,81 @@ function getTaskContent(task, regionTask) {
   }
 }
 
+function getPortfolioAlts(task, regionTask) {
+  const baseMap = {
+    '외벽보수': [
+      { before: '외벽 균열 보수 전 사진', after: '외벽 균열 보수 후 사진' },
+      { before: '창틀 실리콘 재시공 전 사진', after: '창틀 실리콘 재시공 후 사진' },
+      { before: '외벽 크랙 보수 전 사진', after: '외벽 크랙 보수 후 사진' },
+    ],
+    '빗물누수': [
+      { before: '외벽 누수 보수 전 사진', after: '외벽 누수 보수 후 사진' },
+      { before: '창틀 주변 누수 보수 전 사진', after: '창틀 주변 누수 보수 후 사진' },
+      { before: '외벽 크랙 보수 전 사진', after: '외벽 크랙 보수 후 사진' },
+    ],
+    '창틀코킹': [
+      { before: '창틀 주변 코킹 보수 전 사진', after: '창틀 주변 코킹 보수 후 사진' },
+      { before: '창틀 실리콘 재시공 전 사진', after: '창틀 실리콘 재시공 후 사진' },
+      { before: '외벽 균열 보수 전 사진', after: '외벽 균열 보수 후 사진' },
+    ],
+    '창틀누수': [
+      { before: '창틀 하부 누수 보수 전 사진', after: '창틀 하부 누수 보수 후 사진' },
+      { before: '샷시 접합부 보수 전 사진', after: '샷시 접합부 보수 후 사진' },
+      { before: '외벽 누수 보수 전 사진', after: '외벽 누수 보수 후 사진' },
+    ],
+    '창틀실리콘': [
+      { before: '창틀 실리콘 재시공 전 사진', after: '창틀 실리콘 재시공 후 사진' },
+      { before: '창틀 코킹 보수 전 사진', after: '창틀 코킹 보수 후 사진' },
+      { before: '외벽 균열 보수 전 사진', after: '외벽 균열 보수 후 사진' },
+    ],
+    '샷시실리콘': [
+      { before: '샷시 접합부 보수 전 사진', after: '샷시 접합부 보수 후 사진' },
+      { before: '창틀 실리콘 재시공 전 사진', after: '창틀 실리콘 재시공 후 사진' },
+      { before: '외벽 균열 보수 전 사진', after: '외벽 균열 보수 후 사진' },
+    ],
+  };
+  const alts = baseMap[task] || [
+    { before: '외벽 균열 보수 시공 전 사진', after: '외벽 균열 보수 시공 후 사진' },
+    { before: '창틀 실리콘 재시공 전 사진', after: '창틀 실리콘 재시공 후 사진' },
+    { before: '샷시 접합부 보수 시공 전 사진', after: '샷시 접합부 보수 시공 후 사진' },
+  ];
+  const prefix = regionTask ? `${regionTask} 상담 사례 ` : '';
+  return {
+    before1: prefix + alts[0].before,
+    after1:  prefix + alts[0].after,
+    before2: alts[1].before,
+    after2:  alts[1].after,
+    before3: alts[2].before,
+    after3:  alts[2].after,
+  };
+}
+
+function reorderPortfolioHTML(html, task) {
+  const gridMatch = html.match(/(<div class="portfolio-grid" id="portfolio-grid">)([\s\S]*?)(<\/div>\s*<\/div>\s*<\/section>)/m);
+  if (!gridMatch) return html;
+
+  const gridInner = gridMatch[2];
+  const cardParts = gridInner.split(/(?=<!-- Card \d)/);
+  const cards = [];
+  
+  for (const part of cardParts) {
+    if (!part.trim().startsWith('<!-- Card')) continue;
+    const tagsMatch = part.match(/data-portfolio-tags="([^"]+)"/);
+    const tags = tagsMatch ? tagsMatch[1].split(',').map(t => t.trim()) : [];
+    const relevant = tags.includes(task);
+    cards.push({ html: part, relevant });
+  }
+
+  if (cards.length !== 3) return html;
+
+  const sorted = [
+    ...cards.filter(c => c.relevant),
+    ...cards.filter(c => !c.relevant),
+  ];
+  const newInner = '\n        ' + sorted.map(c => c.html.trim()).join('\n\n        ') + '\n      ';
+  return html.replace(gridInner, newInner);
+}
+
 const server = http.createServer((req, res) => {
   let urlPath = req.url.split('?')[0];
   if (urlPath === '/') urlPath = '/index.html';
@@ -188,6 +263,18 @@ const server = http.createServer((req, res) => {
           // 10. Portfolio title
           html = html.replace(/(<h2[^>]*data-keyword="region-task-portfolio"[^>]*>)[\s\S]*?(<\/h2>)/, `$1${regionTask} 시공 사례$2`);
 
+          // 10a. Portfolio 카드 순서 재배치
+          html = reorderPortfolioHTML(html, task);
+
+          // 10b. Portfolio 이미지 alt 교체
+          const alts = getPortfolioAlts(task, regionTask);
+          html = html.replace(/alt="BEFORE_ALT_1"/g, `alt="${alts.before1}"`);
+          html = html.replace(/alt="AFTER_ALT_1"/g, `alt="${alts.after1}"`);
+          html = html.replace(/alt="BEFORE_ALT_2"/g, `alt="${alts.before2}"`);
+          html = html.replace(/alt="AFTER_ALT_2"/g, `alt="${alts.after2}"`);
+          html = html.replace(/alt="BEFORE_ALT_3"/g, `alt="${alts.before3}"`);
+          html = html.replace(/alt="AFTER_ALT_3"/g, `alt="${alts.after3}"`);
+
           // 11. FAQ 1 질문
           html = html.replace(
             /(<span[^>]*data-keyword="region-task-faq1"[^>]*>)[\s\S]*?(<\/span>)/,
@@ -208,6 +295,14 @@ const server = http.createServer((req, res) => {
 
         } else {
           html = html.replace(/CANONICAL_PLACEHOLDER/g, '/');
+          
+          const defaultAlts = getPortfolioAlts('기본', '');
+          html = html.replace(/alt="BEFORE_ALT_1"/g, `alt="${defaultAlts.before1}"`);
+          html = html.replace(/alt="AFTER_ALT_1"/g, `alt="${defaultAlts.after1}"`);
+          html = html.replace(/alt="BEFORE_ALT_2"/g, `alt="${defaultAlts.before2}"`);
+          html = html.replace(/alt="AFTER_ALT_2"/g, `alt="${defaultAlts.after2}"`);
+          html = html.replace(/alt="BEFORE_ALT_3"/g, `alt="${defaultAlts.before3}"`);
+          html = html.replace(/alt="AFTER_ALT_3"/g, `alt="${defaultAlts.after3}"`);
         }
 
         res.writeHead(200, { 'Content-Type': contentType });
