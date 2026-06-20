@@ -105,20 +105,50 @@ const server = http.createServer((req, res) => {
           const h1Content = `<span class="h1-region">${region}</span> <span class="h1-task">${task}</span> <span class="h1-suffix">전문 진단</span>`;
           html = html.replace(/(<h1[^>]*data-keyword="region-task-h1"[^>]*>)[\s\S]*?(<\/h1>)/, `$1${h1Content}$2`);
 
-          // 6. Portfolio title
+          // 6. Hero 강조문 (PC)
+          html = html.replace(
+            /(<span[^>]*data-keyword="region-task-hero-highlight"[^>]*>)[\s\S]*?(<\/span>)/,
+            `$1${regionTask}, 겉면보다 유입 지점부터 확인합니다.$2`
+          );
+
+          // 7. 위험신호 하단 경고 (PC) - 기본문 유지, data-keyword만 있음
+          html = html.replace(
+            /(<p[^>]*data-keyword="region-task-symptom-warning"[^>]*>)[\s\S]*?(<\/p>)/,
+            `$12가지 이상 해당된다면 창틀·샷시·외벽 주변 상태를 함께 확인하는 것이 좋습니다.$2`
+          );
+
+          // 8. LEAK CAUSE MAP 강조 박스
+          html = html.replace(
+            /(<p[^>]*data-keyword="region-task-releak-box"[^>]*>)[\s\S]*?(<\/p>)/,
+            `$1${regionTask}도 보이는 흔적과 실제 유입 지점이 다를 수 있어, 원인 범위를 함께 확인합니다.$2`
+          );
+
+          // 9. Portfolio title
           html = html.replace(/(<h2[^>]*data-keyword="region-task-portfolio"[^>]*>)[\s\S]*?(<\/h2>)/, `$1${regionTask} 시공 사례$2`);
 
-          // 7. FAQ 1 & 3
-          html = html.replace(/(<span[^>]*data-keyword="region-task-faq1"[^>]*>)[\s\S]*?(<\/span>)/, `$1${regionTask}, 비 올 때만 새는데 바로 점검이 필요한가요?$2`);
+          // 10. FAQ 1 질문
+          html = html.replace(
+            /(<span[^>]*data-keyword="region-task-faq1"[^>]*>)[\s\S]*?(<\/span>)/,
+            `$1${regionTask}, 언제 점검이 필요할까요?$2`
+          );
+
+          // 11. FAQ 1 답변
+          html = html.replace(
+            /(<div[^>]*data-keyword="region-task-faq1-answer"[^>]*>)[\s\S]*?(<\/div>)/,
+            `$1\n                비가 온 뒤 창틀 하부나 벽지 주변에 물기가 남고, 외부 실리콘이 갈라졌다면 점검이 필요할 수 있습니다. 창틀뿐 아니라 외벽 균열과 샷시 접합부까지 함께 확인하는 것이 좋습니다.\n              $2`
+          );
+
+          // 12. FAQ 3 질문
           html = html.replace(/(<span[^>]*data-keyword="region-task-faq3"[^>]*>)[\s\S]*?(<\/span>)/, `$1${regionTask} 재시공, 코킹했는데 다시 새는 이유는 뭔가요?$2`);
 
-          // 8. Contact title (PC)
+          // 13. Contact CTA 제목 (PC)
           html = html.replace(/(<h2[^>]*data-keyword="region-task-contact-pc"[^>]*>)[\s\S]*?(<\/h2>)/, `$1${regionTask} 상담, 원인부터 확인하세요$2`);
 
         } else {
           // 기본 메인페이지: canonical = "/"
           html = html.replace(/CANONICAL_PLACEHOLDER/g, '/');
         }
+
 
         res.writeHead(200, { 'Content-Type': contentType });
         res.end(html);
