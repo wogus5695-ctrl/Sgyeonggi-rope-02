@@ -224,7 +224,7 @@ const server = http.createServer((req, res) => {
           const content = getTaskContent(task, regionTask);
 
           // 1. <title>
-          const titleText = `${regionTask} | 창틀·샷시·외벽 누수 진단 레인가드`;
+          const titleText = `${regionTask} | 창틀·샷시·외벽 누수 진단 올케어`;
           html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${titleText}</title>`);
 
           // 2. <meta name="description">

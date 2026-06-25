@@ -71,8 +71,8 @@ function initDynamicKeywords() {
 
   // SEO용 브라우저 타이틀 및 메타 정보 동적 업데이트
   if (isDynamic) {
-    // 1. title: {지역명+작업명} | 창틀·샷시·외벽 빗물누수 전문 레인가드
-    document.title = `${regionTask} | 창틀·샷시·외벽 빗물누수 전문 레인가드`;
+    // 1. title: {지역명+작업명} | 창틀·샷시·외벽 빗물누수 전문 올케어
+    document.title = `${regionTask} | 창틀·샷시·외벽 빗물누수 전문 올케어`;
 
     // 2. meta description: {지역명+작업명}, 창틀누수, 샷시 실리콘, 외벽 크랙, 외벽보수 관련 빗물 유입 문제를 전화 상담으로 안내합니다.
     updateMetaTag('description', `${regionTask}, 창틀누수, 샷시 실리콘, 외벽 크랙, 외벽보수 관련 빗물 유입 문제를 전화 상담으로 안내합니다.`);
@@ -81,15 +81,15 @@ function initDynamicKeywords() {
     updateMetaTag('keywords', `${region} 창틀 누수, ${region} 창틀 실리콘, ${region} 샷시 실리콘, ${region} 빗물누수, ${region} 외벽 보수, ${region} 외벽 크랙, 창틀 하부 누수, 샷시 접합부, 외벽 균열, 기존 실리콘 들뜸, 빗물 유입, 재누수, 외벽 마감 보수`);
 
     // 4. Open Graph 태그 업데이트
-    updateMetaProperty('og:title', `${regionTask} | 창틀·샷시·외벽 빗물누수 전문 레인가드`);
+    updateMetaProperty('og:title', `${regionTask} | 창틀·샷시·외벽 빗물누수 전문 올케어`);
     updateMetaProperty('og:description', `${regionTask}, 창틀누수, 샷시 실리콘, 외벽 크랙, 외벽보수 관련 빗물 유입 문제를 전화 상담으로 안내합니다.`);
   } else {
     // 기본 메인페이지 상태 메타 정보
-    document.title = `서울·경기 빗물누수·창틀코킹 전문 진단 | 레인가드`;
-    updateMetaTag('description', `서울·경기 창틀누수, 샷시 실리콘, 외벽 크랙, 외벽보수 관련 빗물 유입 문제를 전화 상담으로 안내합니다. 레인가드 전문 진단팀.`);
-    updateMetaTag('keywords', `창틀누수, 창틀코킹, 샷시 실리콘, 외벽 크랙, 외벽보수, 서울 창틀코킹, 경기 창틀코킹, 레인가드`);
-    updateMetaProperty('og:title', `서울·경기 빗물누수·창틀코킹 전문 진단 | 레인가드`);
-    updateMetaProperty('og:description', `서울·경기 창틀누수, 샷시 실리콘, 외벽 크랙, 외벽보수 관련 빗물 유입 문제를 전화 상담으로 안내합니다. 레인가드 전문 진단팀.`);
+    document.title = `서울·경기 빗물누수·창틀코킹 전문 진단 | 올케어`;
+    updateMetaTag('description', `서울·경기 창틀누수, 샷시 실리콘, 외벽 크랙, 외벽보수 관련 빗물 유입 문제를 전화 상담으로 안내합니다. 올케어 전문 진단팀.`);
+    updateMetaTag('keywords', `창틀누수, 창틀코킹, 샷시 실리콘, 외벽 크랙, 외벽보수, 서울 창틀코킹, 경기 창틀코킹, 올케어`);
+    updateMetaProperty('og:title', `서울·경기 빗물누수·창틀코킹 전문 진단 | 올케어`);
+    updateMetaProperty('og:description', `서울·경기 창틀누수, 샷시 실리콘, 외벽 크랙, 외벽보수 관련 빗물 유입 문제를 전화 상담으로 안내합니다. 올케어 전문 진단팀.`);
   }
 
   // 11개 섹션별 동적 바인딩 대응
@@ -120,7 +120,7 @@ function initDynamicKeywords() {
 
   // 4. 시공 사례 H2: {지역명+작업명} 시공 사례
   document.querySelectorAll('[data-keyword="region-task-portfolio"]').forEach(el => {
-    el.innerHTML = isDynamic ? `${regionTask} 시공 사례` : `레인가드 대표 시공 사례`;
+    el.innerHTML = isDynamic ? `${regionTask} 시공 사례` : `올케어 대표 시공 사례`;
   });
 
   // 5. FAQ 질문 1: {지역명+작업명}, 비 올 때만 새는데 바로 점검이 필요한가요?

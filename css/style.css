@@ -1,10 +1,10 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 
 :root {
-  --primary-color: #1B61FC;
-  --primary-hover: #0a4ae0;
-  --primary-light: #EFF6FF;
-  --primary-border: #DBEAFE;
+  --primary-color: #7FC502;
+  --primary-hover: #69A302;
+  --primary-light: #F4FAF0;
+  --primary-border: #E6F5D5;
   --dark-color: #0F172A;
   --dark-muted: #1E293B;
   --text-main: #334155;
@@ -13,7 +13,7 @@
   --bg-light: #F8FAFC;
   --bg-white: #FFFFFF;
   --border-color: #F1F5F9;
-  --border-focus: #1B61FC;
+  --border-focus: #7FC502;
   
   --warning-color: #F59E0B;
   --warning-light: #FFFBEB;
@@ -24,9 +24,9 @@
   
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
   --shadow-md: 0 4px 20px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 10px 30px rgba(27, 97, 252, 0.08);
-  --shadow-xl: 0 20px 40px rgba(27, 97, 252, 0.12);
-  --shadow-button: 0 8px 20px rgba(27, 97, 252, 0.25);
+  --shadow-lg: 0 10px 30px rgba(127, 197, 2, 0.08);
+  --shadow-xl: 0 20px 40px rgba(127, 197, 2, 0.12);
+  --shadow-button: 0 8px 20px rgba(127, 197, 2, 0.25);
   
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -326,22 +326,22 @@ button {
 
 .mobile-phone-link,
 .mobile-phone-btn {
-  background-color: #EFF6FF;
-  color: #1D4ED8;
+  background-color: #F4FAF0;
+  color: #5B8C02;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid #BFDBFE;
+  border: 1.5px solid #D4EEB8;
   transition: var(--transition);
   text-decoration: none;
 }
 
 .mobile-phone-btn:hover {
-  background-color: #DBEAFE;
-  border-color: #93C5FD;
+  background-color: #E6F5D5;
+  border-color: #B1E653;
 }
 
 .mobile-phone-btn svg {
@@ -414,14 +414,14 @@ button {
   border-radius: 9999px;
   font-size: 13px;
   font-weight: 700;
-  color: #60A5FA;
+  color: #B5EE43;
   margin-bottom: 24px;
 }
 
 .hero-badge .ping {
   width: 8px;
   height: 8px;
-  background-color: #3B82F6;
+  background-color: #7FC502;
   border-radius: 50%;
   display: inline-block;
   position: relative;
@@ -442,7 +442,7 @@ button {
 .hero-brand-label {
   font-size: 15px;
   font-weight: 950;
-  color: #3B82F6;
+  color: #7FC502;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 16px;
@@ -511,7 +511,7 @@ button {
 .hero-feature-item svg {
   width: 18px;
   height: 18px;
-  fill: #3B82F6;
+  fill: #7FC502;
 }
 
 .hero-cta-group {
@@ -631,7 +631,7 @@ button {
 @media (min-width: 1025px) {
   .symptom-card-new:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(27, 97, 252, 0.08);
+    box-shadow: 0 10px 25px rgba(127, 197, 2, 0.08);
   }
   .symptom-card-new:hover .symptom-card-img {
     transform: scale(1.04);
@@ -666,7 +666,7 @@ button {
 .symptom-card-num {
   font-size: 11px;
   font-weight: 800;
-  color: #93C5FD;
+  color: #B1E653;
   letter-spacing: 0.06em;
   display: block;
   margin-bottom: 4px;
@@ -775,9 +775,9 @@ button {
 }
 
 .risk-section .badge {
-  background: rgba(59, 130, 246, 0.18);
-  color: #93C5FD;
-  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(127, 197, 2, 0.18);
+  color: #B1E653;
+  border-color: rgba(127, 197, 2, 0.3);
 }
 
 .risk-section .section-title {
@@ -860,11 +860,11 @@ button {
 
 /* 위험 등급별 스타일링 */
 .risk-step-card--low {
-  border-color: rgba(59, 130, 246, 0.2);
+  border-color: rgba(127, 197, 2, 0.2);
 }
 .risk-step-card--low .risk-step-badge {
-  background-color: rgba(59, 130, 246, 0.15);
-  color: #60A5FA;
+  background-color: rgba(127, 197, 2, 0.15);
+  color: #B5EE43;
 }
 
 .risk-step-card--mid {
@@ -980,7 +980,7 @@ button {
 .releak-highlight-box .highlight-text {
   font-size: 14px;
   font-weight: 800;
-  color: #1E3A8A;
+  color: #3F6600;
   line-height: 1.5;
   margin-bottom: 0;
   word-break: keep-all;
@@ -1042,8 +1042,8 @@ button {
 
 /* Circle 1: Silicone */
 .venn-circle-1 {
-  background-color: rgba(27, 97, 252, 0.78);
-  border: 1px solid rgba(27, 97, 252, 0.15);
+  background-color: rgba(127, 197, 2, 0.78);
+  border: 1px solid rgba(127, 197, 2, 0.15);
   left: 110px;
   top: 20px;
 }
@@ -1077,7 +1077,7 @@ button {
   .venn-circle:hover {
     transform: scale(1.03);
     z-index: 4;
-    box-shadow: 0 15px 35px rgba(27, 97, 252, 0.15);
+    box-shadow: 0 15px 35px rgba(127, 197, 2, 0.15);
   }
 }
 
@@ -1088,7 +1088,7 @@ button {
   height: 104px;
   border-radius: 50%;
   background-color: #FFFFFF;
-  border: 3px solid #1B61FC;
+  border: 3px solid #7FC502;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1149,7 +1149,7 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to right, rgba(8, 20, 40, 0.45) 0%, rgba(8, 20, 40, 0.8) 45%, rgba(8, 20, 40, 0.96) 100%);
+  background: linear-gradient(to right, rgba(15, 25, 10, 0.45) 0%, rgba(15, 25, 10, 0.8) 45%, rgba(15, 25, 10, 0.96) 100%);
   z-index: 1;
 }
 
@@ -1175,9 +1175,9 @@ button {
 }
 
 .path-badge {
-  background-color: rgba(59, 130, 246, 0.15) !important;
-  color: #60A5FA !important;
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  background-color: rgba(127, 197, 2, 0.15) !important;
+  color: #B5EE43 !important;
+  border: 1px solid rgba(127, 197, 2, 0.3);
 }
 
 .path-title {
@@ -1221,8 +1221,8 @@ button {
   display: flex;
   align-items: flex-start;
   gap: 18px;
-  background-color: rgba(8, 20, 40, 0.78);
-  border: 1px solid rgba(59, 130, 246, 0.15);
+  background-color: rgba(15, 25, 10, 0.78);
+  border: 1px solid rgba(127, 197, 2, 0.15);
   border-radius: 18px;
   padding: 20px 24px;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -1231,17 +1231,17 @@ button {
 @media (min-width: 1025px) {
   .path-card-item:hover {
     transform: translateY(-2px);
-    border-color: rgba(59, 130, 246, 0.4);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+    border-color: rgba(127, 197, 2, 0.4);
+    box-shadow: 0 0 15px rgba(127, 197, 2, 0.15);
   }
 }
 
 .path-card-num {
   font-size: 14px;
   font-weight: 900;
-  color: #00F0FF;
-  background-color: rgba(0, 240, 255, 0.1);
-  border: 1px solid rgba(0, 240, 255, 0.2);
+  color: #B5EE43;
+  background-color: rgba(127, 197, 2, 0.1);
+  border: 1px solid rgba(127, 197, 2, 0.2);
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -1258,7 +1258,7 @@ button {
 .path-card-step {
   font-size: 11px;
   font-weight: 800;
-  color: #60A5FA;
+  color: #B5EE43;
   display: block;
   margin-bottom: 2px;
   text-transform: uppercase;
@@ -1283,9 +1283,9 @@ button {
   display: flex;
   align-items: center;
   gap: 14px;
-  background-color: rgba(10, 30, 60, 0.5);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  border-left: 4px solid #1B61FC;
+  background-color: rgba(20, 35, 15, 0.5);
+  border: 1px solid rgba(127, 197, 2, 0.2);
+  border-left: 4px solid #7FC502;
   border-radius: 12px;
   padding: 14px 20px;
   width: 100%;
@@ -1301,7 +1301,7 @@ button {
 }
 
 .highlight-focus {
-  color: #00F0FF;
+  color: #B5EE43;
 }
 
 /* Section 6: Process */
@@ -1378,7 +1378,7 @@ button {
   background-color: var(--primary-color);
   color: var(--bg-white);
   transform: translateX(-50%) scale(1.1);
-  box-shadow: 0 0 0 6px var(--bg-white), 0 4px 12px rgba(27, 97, 252, 0.2);
+  box-shadow: 0 0 0 6px var(--bg-white), 0 4px 12px rgba(127, 197, 2, 0.2);
 }
 
 .process-info-new {
@@ -1600,7 +1600,7 @@ button {
 
 .slider-label.after {
   right: 16px;
-  background-color: rgba(27, 97, 252, 0.85);
+  background-color: rgba(127, 197, 2, 0.85);
 }
 
 /* Mobile Before/After Toggle UI */
@@ -1670,7 +1670,7 @@ button {
 .toggle-btn.active {
   background-color: var(--primary-color);
   color: #FFFFFF;
-  box-shadow: 0 2px 6px rgba(27, 97, 252, 0.4);
+  box-shadow: 0 2px 6px rgba(127, 197, 2, 0.4);
 }
 
 .portfolio-info {
@@ -2010,7 +2010,7 @@ button {
 }
 
 .contact-card {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #3B82F6 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #99E30F 100%);
   color: #FFFFFF;
   border-radius: 40px;
   padding: 80px 60px;
@@ -2063,7 +2063,7 @@ button {
 .contact-phone-label {
   font-size: 12px;
   font-weight: 800;
-  color: #93C5FD;
+  color: #B1E653;
   letter-spacing: 0.06em;
   margin-bottom: 10px;
   text-transform: uppercase;
@@ -2080,7 +2080,7 @@ button {
 }
 
 .contact-phone-big:hover {
-  color: #DBEAFE;
+  color: #E6F5D5;
 }
 
 .contact-phone-sub {
@@ -2096,7 +2096,7 @@ button {
 
 .contact-hours {
   font-size: 13px;
-  color: #93C5FD;
+  color: #B1E653;
   font-weight: 600;
 }
 
@@ -2113,7 +2113,7 @@ button {
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #93C5FD;
+  color: #B1E653;
   margin-bottom: 16px;
 }
 
@@ -2311,7 +2311,7 @@ button {
   display: flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 4px 10px rgba(27, 97, 252, 0.2);
+  box-shadow: 0 4px 10px rgba(127, 197, 2, 0.2);
   transition: var(--transition);
 }
 
@@ -2492,9 +2492,9 @@ button {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background-color: #EFF6FF !important; /* Brand Blue Background */
-    color: #1B61FC !important; /* Brand Blue Color */
-    border: 1.5px solid #BFDBFE !important;
+    background-color: #F4FAF0 !important; /* Brand Lime Background */
+    color: #7FC502 !important; /* Brand Lime Color */
+    border: 1.5px solid #D4EEB8 !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
     text-decoration: none !important;
