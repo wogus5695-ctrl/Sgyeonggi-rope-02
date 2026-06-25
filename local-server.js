@@ -241,7 +241,7 @@ const server = http.createServer((req, res) => {
             `<meta property="og:url" content="/?k=${encodeURIComponent(kValue)}">`
           );
           
-          const ogImageUrl = `https://www.rainguard.co.kr/images/${content.ogImage}`;
+          const ogImageUrl = `https://www.rainguard.co.kr/images/${content.ogImage}?v=2`;
           html = html.replace(
             /<meta property="og:image" data-keyword="region-task-og-image" content="[^"]*">/,
             `<meta property="og:image" data-keyword="region-task-og-image" content="${ogImageUrl}">`

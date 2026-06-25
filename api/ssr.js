@@ -236,7 +236,7 @@ module.exports = (req, res) => {
       );
 
       // ── 4. OG Image ──────────────────────────────────────────────
-      const ogImageUrl = `https://www.rainguard.co.kr/images/${content.ogImage}`;
+      const ogImageUrl = `https://www.rainguard.co.kr/images/${content.ogImage}?v=2`;
       html = html.replace(
         /<meta property="og:image" data-keyword="region-task-og-image" content="[^"]*">/,
         `<meta property="og:image" data-keyword="region-task-og-image" content="${ogImageUrl}">`
