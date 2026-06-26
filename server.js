@@ -1,2 +1,2 @@
 // Vercel build compatibility dummy script
-console.log("RainGuard static website build");
+console.log("Allcare static website build");
