@@ -106,10 +106,49 @@ function parseKeyword(k) {
  */
 function buildDynamicMeta(region, task, rawK) {
   const regionTask = `${region} ${task}`;
-  const title = `${regionTask} | 창틀·샷시·외벽 누수 진단 올케어`;
-  const description = `${regionTask}, 비 온 뒤 창틀 주변 물기·실리콘 갈라짐·외벽 균열이 보인다면 유입 경로와 현장 상태를 함께 확인해 보수 방향을 안내합니다.`;
+  let title = '';
+  let description = '';
+  let h1Suffix = '';
+
+  switch (task) {
+    case '창틀코킹':
+      title = `${region} 창틀코킹 전문 진단 | 올케어`;
+      h1Suffix = '전문 진단';
+      description = `${region} 창틀코킹은 기존 노후 실리콘의 들뜸과 접착면 상태를 먼저 파악하는 것이 중요합니다. 올케어가 창틀 외부 상태를 꼼꼼히 점검하고 현장에 알맞은 코킹 보수 방향을 안내합니다.`;
+      break;
+    case '창틀누수':
+      title = `${region} 창틀누수 원인 점검 | 올케어`;
+      h1Suffix = '원인 점검';
+      description = `비 올 때마다 반복되는 ${region} 창틀누수는 눈에 보이는 흔적보다 물이 스며드는 실제 유입로를 찾는 것이 시급합니다. 올케어가 샷시 접합부와 외벽 균열 상태를 정밀 점검합니다.`;
+      break;
+    case '빗물누수':
+      title = `${region} 빗물누수 진단 상담 | 올케어`;
+      h1Suffix = '유입 경로 진단';
+      description = `${region} 빗물누수로 벽지가 젖거나 실리콘 틈새가 벌어졌다면 종합 진단이 필요합니다. 올케어가 창틀 상부, 외부 마감면, 외벽 균열까지 복합적인 유입 원인을 진단합니다.`;
+      break;
+    case '창틀실리콘':
+      title = `${region} 창틀실리콘 보수 상담 | 올케어`;
+      h1Suffix = '보수 상담';
+      description = `${region} 창틀실리콘 노화로 인한 틈새는 빗물 유입의 주원인이 될 수 있습니다. 올케어가 겉면에 덧바르지 않고 밀착력과 내구성을 높이는 올바른 실리콘 보수 상담을 제공합니다.`;
+      break;
+    case '샷시실리콘':
+      title = `${region} 샷시실리콘 재시공 상담 | 올케어`;
+      h1Suffix = '재시공 상담';
+      description = `샷시 프레임 접합부의 미세한 틈으로 물기가 번진다면 ${region} 샷시실리콘 정밀 점검이 좋습니다. 올케어가 시공 상태를 진단하고 밀착성과 방수 성능을 복구하는 재시공 상담을 안내합니다.`;
+      break;
+    case '외벽보수':
+      title = `${region} 외벽보수 방수 점검 | 올케어`;
+      h1Suffix = '방수 점검';
+      description = `외벽 마감재 균열이나 적벽돌 줄눈 노후는 실내 누수로 이어집니다. ${region} 외벽보수 진단을 통해 크랙 및 누수 위험 구간을 종합 검수하고 필요한 방수 처리 방안을 제안합니다.`;
+      break;
+    default:
+      title = `${regionTask} | 창틀·샷시·외벽 누수 진단 올케어`;
+      h1Suffix = '전문 진단';
+      description = `${regionTask}, 비 온 뒤 창틀 주변 물기·실리콘 갈라짐·외벽 균열이 보인다면 유입 경로와 현장 상태를 함께 확인해 보수 방향을 안내합니다.`;
+  }
+
   const canonical = `https://www.rainguard.co.kr/?k=${encodeURIComponent(rawK)}`;
-  return { title, description, canonical, regionTask, region, task };
+  return { title, description, canonical, regionTask, region, task, h1Suffix };
 }
 
 /**
@@ -246,7 +285,7 @@ module.exports = (req, res) => {
       html = html.replace(/CANONICAL_PLACEHOLDER/g, meta.canonical);
 
       // ── 6. H1 ─────────────────────────────────────────────────────
-      const h1Content = `<span class="h1-region">${region}</span> <span class="h1-task">${task}</span> <span class="h1-suffix">전문 진단</span>`;
+      const h1Content = `<span class="h1-region">${region}</span> <span class="h1-task">${task}</span> <span class="h1-suffix">${meta.h1Suffix}</span>`;
       html = html.replace(
         /(<h1[^>]*data-keyword="region-task-h1"[^>]*>)[\s\S]*?(<\/h1>)/,
         `$1${h1Content}$2`
