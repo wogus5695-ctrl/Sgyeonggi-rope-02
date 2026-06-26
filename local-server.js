@@ -234,11 +234,11 @@ const server = http.createServer((req, res) => {
           // ── 7. Canonical & OG URL & OG Image ─────────────────────────
           html = html.replace(
             /<link rel="canonical" href="[^"]*">/,
-            `<link rel="canonical" href="/?k=${encodeURIComponent(kValue)}">`
+            `<link rel="canonical" href="https://www.rainguard.co.kr/?k=${encodeURIComponent(kValue)}">`
           );
           html = html.replace(
             /<meta property="og:url" content="[^"]*">/,
-            `<meta property="og:url" content="/?k=${encodeURIComponent(kValue)}">`
+            `<meta property="og:url" content="https://www.rainguard.co.kr/?k=${encodeURIComponent(kValue)}">`
           );
           
           const ogImageUrl = `https://www.rainguard.co.kr/images/${content.ogImage}?v=2`;
@@ -313,7 +313,7 @@ const server = http.createServer((req, res) => {
           html = html.replace(/(<h2[^>]*data-keyword="region-task-contact-pc"[^>]*>)[\s\S]*?(<\/h2>)/, `$1${regionTask} 상담, 원인부터 확인하세요$2`);
 
         } else {
-          html = html.replace(/CANONICAL_PLACEHOLDER/g, '/');
+          html = html.replace(/CANONICAL_PLACEHOLDER/g, 'https://www.rainguard.co.kr/');
           
           const defaultAlts = getPortfolioAlts('기본', '');
           html = html.replace(/alt="BEFORE_ALT_1"/g, `alt="${defaultAlts.before1}"`);
