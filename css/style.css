@@ -3242,20 +3242,20 @@ button {
 }
 
 /* Hero Section CTA adjustment for PC */
-.hero-cta-group.mo-hide {
-  display: flex !important;
+.hero-cta-group {
+  display: flex;
   flex-direction: column;
   gap: 12px;
   align-items: flex-start;
 }
 
-.hero-cta-group.mo-hide .cta-buttons-flex {
+.hero-cta-group .cta-buttons-flex {
   display: flex;
   gap: 10px;
 }
 
 /* PC Hero Buttons custom sizing (46px height, 12px radius) */
-.hero-cta-group.mo-hide .cta-buttons-flex .btn {
+.hero-cta-group .cta-buttons-flex .btn {
   height: 46px !important;
   padding: 0 24px !important;
   font-size: 15px !important;
@@ -3264,7 +3264,7 @@ button {
 }
 
 /* 위계 조정을 위한 Ghost 버튼 스타일 */
-.hero-cta-group.mo-hide .btn-ghost-link {
+.hero-cta-group .btn-ghost-link {
   font-size: 14px;
   color: var(--text-muted);
   text-decoration: none;
@@ -3276,7 +3276,7 @@ button {
   margin-top: 4px;
 }
 
-.hero-cta-group.mo-hide .btn-ghost-link:hover {
+.hero-cta-group .btn-ghost-link:hover {
   color: var(--primary-color);
   text-decoration: underline;
 }
