@@ -3215,3 +3215,286 @@ button {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
   }
 }
+
+/* PC KakaoTalk & Phone CTA Updates */
+
+/* Kakao Button Common */
+.btn-kakao {
+  background-color: #FEE500 !important;
+  color: #191919 !important;
+  box-shadow: 0 4px 12px rgba(254, 229, 0, 0.2) !important;
+  text-decoration: none;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.btn-kakao:hover {
+  background-color: #FADA0A !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(254, 229, 0, 0.35) !important;
+}
+
+.btn-kakao:active {
+  transform: translateY(0);
+}
+
+/* Hero Section CTA adjustment for PC */
+.hero-cta-group.mo-hide {
+  display: flex !important;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.hero-cta-group.mo-hide .cta-buttons-flex {
+  display: flex;
+  gap: 10px;
+}
+
+/* PC Hero Buttons custom sizing (46px height, 12px radius) */
+.hero-cta-group.mo-hide .cta-buttons-flex .btn {
+  height: 46px !important;
+  padding: 0 24px !important;
+  font-size: 15px !important;
+  border-radius: 12px !important;
+  gap: 8px !important;
+}
+
+/* 위계 조정을 위한 Ghost 버튼 스타일 */
+.hero-cta-group.mo-hide .btn-ghost-link {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.hero-cta-group.mo-hide .btn-ghost-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Contact CTA adjustment for PC */
+.contact-cta-wrapper.mo-hide {
+  display: flex !important;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.contact-cta-wrapper.mo-hide .cta-buttons-flex {
+  display: flex;
+  gap: 10px;
+}
+
+.contact-cta-wrapper.mo-hide .cta-buttons-flex .contact-cta-button {
+  height: 46px !important;
+  padding: 0 24px !important;
+  font-size: 15px !important;
+  border-radius: 12px !important;
+  gap: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  line-height: 1 !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.contact-cta-wrapper.mo-hide .cta-buttons-flex .contact-cta-button svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.contact-cta-wrapper.mo-hide .cta-buttons-flex .contact-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.contact-helper-text {
+  font-size: 13px;
+  color: #E2E8F0;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* PC Floating Dock (PC Only) */
+.pc-floating-dock {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(241, 245, 249, 0.8);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.pc-floating-dock .dock-btn {
+  height: 42px;
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.pc-floating-dock .dock-btn-phone {
+  background-color: var(--primary-color);
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(27, 97, 252, 0.2);
+}
+
+.pc-floating-dock .dock-btn-phone:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(27, 97, 252, 0.3);
+}
+
+.pc-floating-dock .dock-btn-kakao {
+  background-color: #FEE500;
+  color: #191919;
+  box-shadow: 0 4px 10px rgba(254, 229, 0, 0.2);
+}
+
+.pc-floating-dock .dock-btn-kakao:hover {
+  background-color: #FADA0A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(254, 229, 0, 0.3);
+}
+
+.pc-floating-dock .dock-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* 반응형 분기 */
+@media (max-width: 768px) {
+  .pc-floating-dock {
+    display: none !important;
+  }
+}
+
+/* Mobile Bottom Fixed CTA Split Layout */
+.floating-cta {
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom)) !important;
+  background-color: #FFFFFF !important;
+  border-top: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 -8px 24px rgba(15, 23, 42, 0.08) !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+}
+
+.floating-cta-container-split {
+  display: flex !important;
+  width: 100% !important;
+  gap: 10px !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+}
+
+.floating-cta-btn-split {
+  flex: 1 !important;
+  height: 48px !important;
+  border-radius: 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease !important;
+}
+
+.floating-cta-btn-split.floating-phone {
+  background-color: var(--primary-color) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(27, 97, 252, 0.15) !important;
+}
+
+.floating-cta-btn-split.floating-phone svg {
+  animation: floatPhone 1.5s ease-in-out infinite;
+  fill: #FFFFFF !important;
+}
+
+.floating-cta-btn-split.floating-kakao {
+  background-color: #FEE500 !important;
+  color: #191919 !important;
+  box-shadow: 0 4px 12px rgba(254, 229, 0, 0.15) !important;
+}
+
+.floating-cta-btn-split.floating-kakao svg {
+  fill: #191919 !important;
+}
+
+/* Mobile Hero CTA styles */
+.hero-cta-group-mobile {
+  display: flex !important;
+  gap: 10px !important;
+  width: 100% !important;
+  margin-top: 20px !important;
+}
+
+.btn-mo-hero {
+  flex: 1 !important;
+  height: 42px !important;
+  border-radius: 10px !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-mo-hero-phone {
+  background-color: var(--primary-color) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 10px rgba(27, 97, 252, 0.15) !important;
+}
+
+.btn-mo-hero-phone svg {
+  fill: #FFFFFF !important;
+}
+
+.btn-mo-hero-kakao {
+  background-color: #FEE500 !important;
+  color: #191919 !important;
+  box-shadow: 0 4px 10px rgba(254, 229, 0, 0.15) !important;
+}
+
+.btn-mo-hero-kakao svg {
+  fill: #191919 !important;
+}
+
+/* Footer bottom padding adjustment */
+@media (max-width: 768px) {
+  .main-footer {
+    padding: 60px 0 calc(90px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+
