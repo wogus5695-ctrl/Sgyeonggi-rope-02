@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 전화번호 중앙 관리 변수 (이곳의 값만 변경하면 사이트 전체 전화번호가 업데이트됩니다)
-const COMPANY_PHONE = '010-4667-5568';
+const COMPANY_PHONE = '050-7871-3550';
 
 /**
  * 사이트 내의 모든 대표 전화번호 텍스트 및 링크를 중앙 변수 기반으로 업데이트합니다.
