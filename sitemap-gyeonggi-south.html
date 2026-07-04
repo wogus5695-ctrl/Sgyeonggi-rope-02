@@ -164,12 +164,15 @@
     }
 
     /* 도시 카드 섹션 */
-    .city-card {
+    .region-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 16px;
       padding: 30px;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      height: auto;
+      box-sizing: border-box;
     }
 
     .city-header {
@@ -256,30 +259,31 @@
     }
 
     /* 지역 카드 그리드 */
-    .region-grid {
+    .region-card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 24px;
       align-items: start;
+      width: 100%;
       margin-bottom: 40px;
     }
     @media (min-width: 1440px) {
-      .region-grid {
+      .region-card-grid {
         grid-template-columns: repeat(4, 1fr);
       }
     }
     @media (max-width: 1439px) and (min-width: 1200px) {
-      .region-grid {
+      .region-card-grid {
         grid-template-columns: repeat(3, 1fr);
       }
     }
     @media (max-width: 1199px) and (min-width: 768px) {
-      .region-grid {
+      .region-card-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
     @media (max-width: 767px) {
-      .region-grid {
+      .region-card-grid {
         grid-template-columns: 1fr;
         gap: 16px;
       }
@@ -299,7 +303,7 @@
       .container {
         padding: 20px 10px 60px;
       }
-      .city-card {
+      .region-card {
         padding: 20px;
       }
       .links-grid {
@@ -362,8 +366,8 @@
       <a href="#pyeongtaek">평택</a>
       <a href="#anseong">안성</a>
     </nav>
-    <div class="region-grid">
-<section class="city-card" id="suwon">
+    <div class="region-card-grid">
+<section class="region-card" id="suwon">
       <div class="city-header">
         <h2 class="city-title">수원 <span class="city-badge">198개</span></h2>
       </div>
@@ -582,7 +586,7 @@
     <!-- ==========================================
          CITY: 화성 (총 198개 키워드)
          ========================================== -->
-    <section class="city-card" id="hwaseong">
+    <section class="region-card" id="hwaseong">
       <div class="city-header">
         <h2 class="city-title">화성 <span class="city-badge">198개</span></h2>
       </div>
@@ -797,7 +801,7 @@
     <!-- ==========================================
          CITY: 오산 (총 138개 키워드)
          ========================================== -->
-    <section class="city-card" id="osan">
+    <section class="region-card" id="osan">
       <div class="city-header">
         <h2 class="city-title">오산 <span class="city-badge">138개</span></h2>
       </div>
@@ -952,7 +956,7 @@
     <!-- ==========================================
          CITY: 용인 (총 246개 키워드)
          ========================================== -->
-    <section class="city-card" id="yongin">
+    <section class="region-card" id="yongin">
       <div class="city-header">
         <h2 class="city-title">용인 <span class="city-badge">246개</span></h2>
       </div>
@@ -1219,7 +1223,7 @@
     <!-- ==========================================
          CITY: 이천 (총 156개 키워드)
          ========================================== -->
-    <section class="city-card" id="icheon">
+    <section class="region-card" id="icheon">
       <div class="city-header">
         <h2 class="city-title">이천 <span class="city-badge">156개</span></h2>
       </div>
@@ -1392,7 +1396,7 @@
     <!-- ==========================================
          CITY: 평택 (총 174개 키워드)
          ========================================== -->
-    <section class="city-card" id="pyeongtaek">
+    <section class="region-card" id="pyeongtaek">
       <div class="city-header">
         <h2 class="city-title">평택 <span class="city-badge">174개</span></h2>
       </div>
@@ -1583,7 +1587,7 @@
     <!-- ==========================================
          CITY: 안성 (총 162개 키워드)
          ========================================== -->
-    <section class="city-card" id="anseong">
+    <section class="region-card" id="anseong">
       <div class="city-header">
         <h2 class="city-title">안성 <span class="city-badge">162개</span></h2>
       </div>
@@ -1766,8 +1770,8 @@
          SECTION 2: 260704 추가 키워드: 인천 시·군·구
          ========================================== -->
     <h2 class="main-section-title" id="section-incheon-district">2. 260704 추가 키워드: 인천 시·군·구</h2>
-    <div class="region-grid">
-      <section class="city-card">
+    <div class="region-card-grid">
+      <section class="region-card">
         <div class="city-header">
           <h2 class="city-title">인천 시/군/구 단위 <span class="city-badge">상담 가능</span></h2>
         </div>
@@ -1861,8 +1865,8 @@
          SECTION 3: 260704 추가 키워드: 인천 읍·면·동
          ========================================== -->
     <h2 class="main-section-title" id="section-incheon-dong">3. 260704 추가 키워드: 인천 읍·면·동</h2>
-    <div class="region-grid">
-      <section class="city-card">
+    <div class="region-card-grid">
+      <section class="region-card">
         <div class="city-header">
           <h2 class="city-title">인천 읍·면·동 단위 <span class="city-badge">상담 가능</span></h2>
         </div>
@@ -2412,8 +2416,8 @@
          SECTION 4: 260704 추가 키워드: 경기 서남부 시·구
          ========================================== -->
     <h2 class="main-section-title" id="section-gyeonggi-west-district">4. 260704 추가 키워드: 경기 서남부 시·구</h2>
-    <div class="region-grid">
-      <section class="city-card">
+    <div class="region-card-grid">
+      <section class="region-card">
         <div class="city-header">
           <h2 class="city-title">경기 서남부 시/구 단위 <span class="city-badge">상담 가능</span></h2>
         </div>
@@ -2567,8 +2571,8 @@
          SECTION 5: 260704 추가 키워드: 경기 서남부 읍·면·동
          ========================================== -->
     <h2 class="main-section-title" id="section-gyeonggi-west-dong">5. 260704 추가 키워드: 경기 서남부 읍·면·동</h2>
-    <div class="region-grid">
-      <section class="city-card">
+    <div class="region-card-grid">
+      <section class="region-card">
         <div class="city-header">
           <h2 class="city-title">경기 서남부 읍·면·동 단위 <span class="city-badge">상담 가능</span></h2>
         </div>
