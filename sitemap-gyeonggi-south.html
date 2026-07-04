@@ -32,9 +32,20 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1440px;
+      width: calc(100% - 48px);
       margin: 0 auto;
-      padding: 40px 20px 80px;
+      padding: 40px 0 80px;
+    }
+    @media (max-width: 1024px) {
+      .container {
+        width: calc(100% - 32px);
+      }
+    }
+    @media (max-width: 640px) {
+      .container {
+        width: calc(100% - 24px);
+      }
     }
 
     /* 헤더 스타일 */
@@ -174,30 +185,31 @@
     /* 링크 그리드 */
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 8px;
     }
 
     .links-grid a {
       display: block;
       text-decoration: none;
       color: var(--text-main);
-      background: var(--bg-main);
-      border: 1px solid var(--border-color);
+      background: #ffffff;
+      border: 1px solid #dbe3ef;
       padding: 10px 12px;
       border-radius: 8px;
       text-align: center;
+      font-size: 14px;
+      line-height: 1.4;
       font-weight: 500;
       transition: all 0.2s ease;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal;
+      word-break: keep-all;
     }
 
     .links-grid a:hover {
       background: var(--primary-light);
       color: var(--primary);
-      border-color: var(--primary-border);
+      border-color: var(--primary);
       transform: translateY(-1px);
       box-shadow: 0 2px 4px rgba(27, 97, 252, 0.08);
     }
@@ -240,6 +252,36 @@
       border-left: 5px solid #1B61FC;
       border-radius: 0 8px 8px 0;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* 지역 카드 그리드 */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 1440px) {
+      .region-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media (max-width: 1439px) and (min-width: 1200px) {
+      .region-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 1199px) and (min-width: 768px) {
+      .region-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 767px) {
+      .region-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
     }
   </style>
 </head>
@@ -288,6 +330,7 @@
       <a href="#pyeongtaek">평택</a>
       <a href="#anseong">안성</a>
     </nav>
+    <div class="region-grid">
     <!-- ==========================================
          CITY: 수원 (총 198개 키워드)
          ========================================== -->
