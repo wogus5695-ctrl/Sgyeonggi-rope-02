@@ -214,35 +214,45 @@
     }
 
     /* 링크 그리드 */
-    .links-grid {
+    .keyword-link-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
     }
 
-    .links-grid a {
-      display: block;
-      text-decoration: none;
-      color: var(--text-main);
-      background: #ffffff;
+    .keyword-link-grid a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 9px 10px;
       border: 1px solid #dbe3ef;
-      padding: 10px 12px;
       border-radius: 8px;
+      background: #ffffff;
+      color: var(--text-main);
       text-align: center;
-      font-size: 14px;
-      line-height: 1.4;
+      text-decoration: none;
+      font-size: 13px;
+      line-height: 1.35;
       font-weight: 500;
       transition: all 0.2s ease;
       white-space: normal;
       word-break: keep-all;
+      box-sizing: border-box;
     }
 
-    .links-grid a:hover {
+    .keyword-link-grid a:hover {
       background: var(--primary-light);
       color: var(--primary);
       border-color: var(--primary);
       transform: translateY(-1px);
       box-shadow: 0 2px 4px rgba(27, 97, 252, 0.08);
+    }
+
+    @media (max-width: 480px) {
+      .keyword-link-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* 대주제 섹션 타이틀 */
@@ -306,11 +316,11 @@
       .region-card {
         padding: 20px;
       }
-      .links-grid {
+      .keyword-link-grid {
         grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
         gap: 8px;
       }
-      .links-grid a {
+      .keyword-link-grid a {
         font-size: 13px;
         padding: 8px 10px;
       }
@@ -372,7 +382,7 @@
         <h2 class="city-title">수원 <span class="city-badge">198개</span></h2>
       </div>
       <h3 class="sub-section-title">시 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=수원-창틀코킹">수원 창틀코킹</a>
         <a href="/?k=수원-창틀누수">수원 창틀누수</a>
         <a href="/?k=수원-빗물누수">수원 빗물누수</a>
@@ -388,7 +398,7 @@
       </div>
 
       <h3 class="sub-section-title">구 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=장안구-창틀코킹">장안구 창틀코킹</a>
         <a href="/?k=장안구-창틀누수">장안구 창틀누수</a>
         <a href="/?k=장안구-빗물누수">장안구 빗물누수</a>
@@ -416,7 +426,7 @@
       </div>
 
       <h3 class="sub-section-title">읍/면/동 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=광교-창틀코킹">광교 창틀코킹</a>
         <a href="/?k=광교-창틀누수">광교 창틀누수</a>
         <a href="/?k=광교-빗물누수">광교 빗물누수</a>
@@ -591,7 +601,7 @@
         <h2 class="city-title">화성 <span class="city-badge">198개</span></h2>
       </div>
       <h3 class="sub-section-title">시 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=화성-창틀코킹">화성 창틀코킹</a>
         <a href="/?k=화성-창틀누수">화성 창틀누수</a>
         <a href="/?k=화성-빗물누수">화성 빗물누수</a>
@@ -607,7 +617,7 @@
       </div>
 
       <h3 class="sub-section-title">읍/면/동 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=동탄-창틀코킹">동탄 창틀코킹</a>
         <a href="/?k=동탄-창틀누수">동탄 창틀누수</a>
         <a href="/?k=동탄-빗물누수">동탄 빗물누수</a>
@@ -806,7 +816,7 @@
         <h2 class="city-title">오산 <span class="city-badge">138개</span></h2>
       </div>
       <h3 class="sub-section-title">시 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=오산-창틀코킹">오산 창틀코킹</a>
         <a href="/?k=오산-창틀누수">오산 창틀누수</a>
         <a href="/?k=오산-빗물누수">오산 빗물누수</a>
@@ -822,7 +832,7 @@
       </div>
 
       <h3 class="sub-section-title">읍/면/동 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=세교-창틀코킹">세교 창틀코킹</a>
         <a href="/?k=세교-창틀누수">세교 창틀누수</a>
         <a href="/?k=세교-빗물누수">세교 빗물누수</a>
@@ -961,7 +971,7 @@
         <h2 class="city-title">용인 <span class="city-badge">246개</span></h2>
       </div>
       <h3 class="sub-section-title">시 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=용인-창틀코킹">용인 창틀코킹</a>
         <a href="/?k=용인-창틀누수">용인 창틀누수</a>
         <a href="/?k=용인-빗물누수">용인 빗물누수</a>
@@ -977,7 +987,7 @@
       </div>
 
       <h3 class="sub-section-title">구 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=처인구-창틀코킹">처인구 창틀코킹</a>
         <a href="/?k=처인구-창틀누수">처인구 창틀누수</a>
         <a href="/?k=처인구-빗물누수">처인구 빗물누수</a>
@@ -999,7 +1009,7 @@
       </div>
 
       <h3 class="sub-section-title">읍/면/동 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=동백-창틀코킹">동백 창틀코킹</a>
         <a href="/?k=동백-창틀누수">동백 창틀누수</a>
         <a href="/?k=동백-빗물누수">동백 빗물누수</a>
@@ -1228,7 +1238,7 @@
         <h2 class="city-title">이천 <span class="city-badge">156개</span></h2>
       </div>
       <h3 class="sub-section-title">시 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=이천-창틀코킹">이천 창틀코킹</a>
         <a href="/?k=이천-창틀누수">이천 창틀누수</a>
         <a href="/?k=이천-빗물누수">이천 빗물누수</a>
@@ -1244,7 +1254,7 @@
       </div>
 
       <h3 class="sub-section-title">읍/면/동 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=창전동-창틀코킹">창전동 창틀코킹</a>
         <a href="/?k=창전동-창틀누수">창전동 창틀누수</a>
         <a href="/?k=창전동-빗물누수">창전동 빗물누수</a>
@@ -1401,7 +1411,7 @@
         <h2 class="city-title">평택 <span class="city-badge">174개</span></h2>
       </div>
       <h3 class="sub-section-title">시 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=평택-창틀코킹">평택 창틀코킹</a>
         <a href="/?k=평택-창틀누수">평택 창틀누수</a>
         <a href="/?k=평택-빗물누수">평택 빗물누수</a>
@@ -1417,7 +1427,7 @@
       </div>
 
       <h3 class="sub-section-title">읍/면/동 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=고덕-창틀코킹">고덕 창틀코킹</a>
         <a href="/?k=고덕-창틀누수">고덕 창틀누수</a>
         <a href="/?k=고덕-빗물누수">고덕 빗물누수</a>
@@ -1592,7 +1602,7 @@
         <h2 class="city-title">안성 <span class="city-badge">162개</span></h2>
       </div>
       <h3 class="sub-section-title">시 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=안성-창틀코킹">안성 창틀코킹</a>
         <a href="/?k=안성-창틀누수">안성 창틀누수</a>
         <a href="/?k=안성-빗물누수">안성 빗물누수</a>
@@ -1608,7 +1618,7 @@
       </div>
 
       <h3 class="sub-section-title">읍/면/동 단위</h3>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=공도-창틀코킹">공도 창틀코킹</a>
         <a href="/?k=공도-창틀누수">공도 창틀누수</a>
         <a href="/?k=공도-빗물누수">공도 빗물누수</a>
@@ -1778,7 +1788,7 @@
         <p style="color: var(--text-muted); margin: 0 0 20px 0; line-height: 1.7; font-size: 14px; word-break: keep-all;">
           인천광역시 및 각 군·구 단위 지역에 대해 창틀 코킹 상담 및 안내를 지원합니다.
         </p>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=%EC%9D%B8%EC%B2%9C-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">인천 창틀코킹</a>
         <a href="/?k=%EC%9D%B8%EC%B2%9C-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">인천 창틀누수</a>
         <a href="/?k=%EC%9D%B8%EC%B2%9C-%EB%B9%97%EB%AC%BC%EB%88%84%EC%88%98">인천 빗물누수</a>
@@ -1873,7 +1883,7 @@
         <p style="color: var(--text-muted); margin: 0 0 20px 0; line-height: 1.7; font-size: 14px; word-break: keep-all;">
           인천 전체 지역의 읍·면·동 단위 상세 롱테일 키워드 상담 페이지 목록입니다.
         </p>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=%EC%86%A1%EB%8F%84%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">송도동 창틀코킹</a>
         <a href="/?k=%EC%86%A1%EB%8F%84%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">송도동 창틀누수</a>
         <a href="/?k=%EC%86%A1%EB%8F%84%EB%8F%99-%EB%B9%97%EB%AC%BC%EB%88%84%EC%88%98">송도동 빗물누수</a>
@@ -2424,7 +2434,7 @@
         <p style="color: var(--text-muted); margin: 0 0 20px 0; line-height: 1.7; font-size: 14px; word-break: keep-all;">
           안산, 시흥, 부천 등 경기 서남부 주요 시·구 단위 지역의 샷시 및 실리콘 진단 상담을 제공합니다.
         </p>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=%EC%95%88%EC%82%B0-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">안산 창틀코킹</a>
         <a href="/?k=%EC%95%88%EC%82%B0-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">안산 창틀누수</a>
         <a href="/?k=%EC%95%88%EC%82%B0-%EB%B9%97%EB%AC%BC%EB%88%84%EC%88%98">안산 빗물누수</a>
@@ -2579,7 +2589,7 @@
         <p style="color: var(--text-muted); margin: 0 0 20px 0; line-height: 1.7; font-size: 14px; word-break: keep-all;">
           경기 서남부(안산, 시흥, 부천, 광명, 군포, 안양, 과천, 의왕)의 읍·면·동 단위 상세 롱테일 키워드 목록입니다.
         </p>
-      <div class="links-grid">
+      <div class="keyword-link-grid">
         <a href="/?k=%EA%B3%A0%EC%9E%94%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">고잔동 창틀코킹</a>
         <a href="/?k=%EA%B3%A0%EC%9E%94%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">고잔동 창틀누수</a>
         <a href="/?k=%EA%B3%A0%EC%9E%94%EB%8F%99-%EB%B9%97%EB%AC%BC%EB%88%84%EC%88%98">고잔동 빗물누수</a>
