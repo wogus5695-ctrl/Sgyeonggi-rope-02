@@ -131,7 +131,7 @@
     }
 
     /* 네비게이션 */
-    .hub-section-nav {
+    .province-nav {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
@@ -144,7 +144,7 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
 
-    .hub-section-nav a {
+    .province-nav a {
       color: var(--text-main);
       text-decoration: none;
       font-weight: 600;
@@ -157,7 +157,7 @@
       word-break: keep-all;
     }
 
-    .hub-section-nav a:hover {
+    .province-nav a:hover {
       background: var(--primary-light);
       color: var(--primary);
       border-color: var(--primary-border);
@@ -362,8 +362,8 @@
 <body>
 <div class="container">
   <header class="hub-header">
-    <h1 class="hub-title">올케어 인천·경기 서남부 키워드 허브</h1>
-    <p class="hub-subtitle" style="max-width: 800px; margin: 10px auto 0; font-size: 14px; word-break: keep-all;">올케어 인천·경기 서남부 키워드 허브는 서울, 인천, 경기 남부·서남부 주요 지역의 창틀코킹·창틀누수·빗물누수·창틀실리콘·샷시실리콘·외벽보수 상담 페이지를 한 번에 확인할 수 있도록 구성한 페이지입니다.</p>
+    <h1 class="hub-title">올케어 인천·경기 남부·서남부 키워드 허브</h1>
+    <p class="hub-subtitle" style="max-width: 850px; margin: 10px auto 0; font-size: 14px; word-break: keep-all; line-height: 1.6;">올케어 키워드 허브는 인천과 경기 남부·서남부 주요 지역의 창틀코킹·창틀누수·빗물누수·창틀실리콘·샷시실리콘·외벽보수 상담 페이지를 한 번에 확인할 수 있도록 구성한 페이지입니다. 서울권 키워드는 추후 확장 예정입니다.</p>
   </header>
 
   <section class="hub-summary">
@@ -385,37 +385,24 @@
     </div>
   </section>
 
-  <nav class="hub-section-nav" aria-label="키워드 섹션 바로가기">
-    <a href="#section-gyeonggi">경기 지역 키워드</a>
-    <a href="#section-incheon">인천 지역 키워드</a>
+  <nav class="province-nav" aria-label="키워드 섹션 바로가기">
+    <a href="#province-gyeonggi">경기</a>
+    <a href="#province-incheon">인천</a>
   </nav>
 
   <main class="hub-keyword-content">
     <!-- ==========================================
-         SECTION 1: 경기 지역 키워드
+         PROVINCE: 경기
          ========================================== -->
-    <section id="section-gyeonggi">
-      <div class="section-heading">
-        <h2>1. 경기 지역 키워드</h2>
-        <p>경기도 주요 시·구 및 읍·면·동 단위 창틀코킹·빗물누수 방수 진단 서비스 제공 구역입니다.</p>
+    <section id="province-gyeonggi">
+      <div class="section-heading" style="background: #EFF6FF; border-left: 5px solid #1B61FC; border-radius: 8px; padding: 16px 20px; margin-bottom: 30px;">
+        <h2 style="font-size: 22px; font-weight: 800; color: #0F172A; margin: 0 0 6px;">경기 키워드</h2>
+        <p style="font-size: 13px; color: var(--text-muted); margin: 0;">경기도 주요 시·구 및 읍·면·동 단위 창틀코킹·빗물누수 방수 진단 서비스 제공 구역입니다.</p>
       </div>
-
-      <div class="region-filter">
-        <a href="#region-suwon">수원</a>
-        <a href="#region-hwaseong">화성</a>
-        <a href="#region-osan">오산</a>
-        <a href="#region-yongin">용인</a>
-        <a href="#region-icheon">이천</a>
-        <a href="#region-pyeongtaek">평택</a>
-        <a href="#region-anseong">안성</a>
-        <a href="#region-ansan">안산</a>
-        <a href="#region-siheung">흥</a>
-        <a href="#region-bucheon">부천</a>
-        <a href="#region-gwangmyeong">광명</a>
-        <a href="#region-gunpo">포</a>
-        <a href="#region-anyang">안양</a>
-        <a href="#region-gwacheon">과천</a>
-        <a href="#region-uiwang">의왕</a>
+      <!-- SUBSECTION: 경기 남부 -->
+      <div class="subsection-header" id="section-gyeonggi-south" style="margin: 30px 0 15px; padding-left: 10px; border-left: 4px solid var(--primary);">
+        <h3 style="font-size: 16px; font-weight: 700; color: #1E293B; margin: 0 0 4px;">경기 남부</h3>
+        <p style="font-size: 12px; color: var(--text-muted); margin: 0;">수원, 화성, 오산, 용인, 이천, 평택, 안성 지역의 키워드 목록입니다.</p>
       </div>
 
       <div class="region-card-grid">
@@ -423,7 +410,7 @@
           <div class="city-header">
             <h2 class="city-title">수원시 <span class="city-badge">198개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=수원-창틀코킹">수원 창틀코킹</a>
             <a href="/?k=수원-창틀누수">수원 창틀누수</a>
@@ -450,7 +437,7 @@
             <a href="/?k=영통-샷시실리콘">영통 샷시실리콘</a>
             <a href="/?k=영통-외벽보수">영통 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">구 단위</h3>
+          <h4 class="sub-section-title">구 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=장안구-창틀코킹">장안구 창틀코킹</a>
             <a href="/?k=장안구-창틀누수">장안구 창틀누수</a>
@@ -477,7 +464,7 @@
             <a href="/?k=영통구-샷시실리콘">영통구 샷시실리콘</a>
             <a href="/?k=영통구-외벽보수">영통구 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=영통동-창틀코킹">영통동 창틀코킹</a>
             <a href="/?k=영통동-창틀누수">영통동 창틀누수</a>
@@ -635,7 +622,7 @@
           <div class="city-header">
             <h2 class="city-title">화성시 <span class="city-badge">198개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=화성-창틀코킹">화성 창틀코킹</a>
             <a href="/?k=화성-창틀누수">화성 창틀누수</a>
@@ -650,7 +637,7 @@
             <a href="/?k=화성시-샷시실리콘">화성시 샷시실리콘</a>
             <a href="/?k=화성시-외벽보수">화성시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">읍·면·동 단위</h3>
+          <h4 class="sub-section-title">읍·면·동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=동탄-창틀코킹">동탄 창틀코킹</a>
             <a href="/?k=동탄-창틀누수">동탄 창틀누수</a>
@@ -844,7 +831,7 @@
           <div class="city-header">
             <h2 class="city-title">오산시 <span class="city-badge">138개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=오산-창틀코킹">오산 창틀코킹</a>
             <a href="/?k=오산-창틀누수">오산 창틀누수</a>
@@ -859,7 +846,7 @@
             <a href="/?k=오산시-샷시실리콘">오산시 샷시실리콘</a>
             <a href="/?k=오산시-외벽보수">오산시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">읍·면·동 단위</h3>
+          <h4 class="sub-section-title">읍·면·동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=세교-창틀코킹">세교 창틀코킹</a>
             <a href="/?k=세교-창틀누수">세교 창틀누수</a>
@@ -993,7 +980,7 @@
           <div class="city-header">
             <h2 class="city-title">용인시 <span class="city-badge">246개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=용인-창틀코킹">용인 창틀코킹</a>
             <a href="/?k=용인-창틀누수">용인 창틀누수</a>
@@ -1020,7 +1007,7 @@
             <a href="/?k=죽전-샷시실리콘">죽전 샷시실리콘</a>
             <a href="/?k=죽전-외벽보수">죽전 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">구 단위</h3>
+          <h4 class="sub-section-title">구 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=처인구-창틀코킹">처인구 창틀코킹</a>
             <a href="/?k=처인구-창틀누수">처인구 창틀누수</a>
@@ -1041,7 +1028,7 @@
             <a href="/?k=수지구-샷시실리콘">수지구 샷시실리콘</a>
             <a href="/?k=수지구-외벽보수">수지구 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=신갈동-창틀코킹">신갈동 창틀코킹</a>
             <a href="/?k=신갈동-창틀누수">신갈동 창틀누수</a>
@@ -1253,7 +1240,7 @@
           <div class="city-header">
             <h2 class="city-title">이천시 <span class="city-badge">156개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=이천-창틀코킹">이천 창틀코킹</a>
             <a href="/?k=이천-창틀누수">이천 창틀누수</a>
@@ -1268,7 +1255,7 @@
             <a href="/?k=이천시-샷시실리콘">이천시 샷시실리콘</a>
             <a href="/?k=이천시-외벽보수">이천시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">읍·면·동 단위</h3>
+          <h4 class="sub-section-title">읍·면·동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=부발-창틀코킹">부발 창틀코킹</a>
             <a href="/?k=부발-창틀누수">부발 창틀누수</a>
@@ -1420,7 +1407,7 @@
           <div class="city-header">
             <h2 class="city-title">평택시 <span class="city-badge">174개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=평택-창틀코킹">평택 창틀코킹</a>
             <a href="/?k=평택-창틀누수">평택 창틀누수</a>
@@ -1435,7 +1422,7 @@
             <a href="/?k=평택시-샷시실리콘">평택시 샷시실리콘</a>
             <a href="/?k=평택시-외벽보수">평택시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">읍·면·동 단위</h3>
+          <h4 class="sub-section-title">읍·면·동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=고덕-창틀코킹">고덕 창틀코킹</a>
             <a href="/?k=고덕-창틀누수">고덕 창틀누수</a>
@@ -1605,7 +1592,7 @@
           <div class="city-header">
             <h2 class="city-title">안성시 <span class="city-badge">162개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=안성-창틀코킹">안성 창틀코킹</a>
             <a href="/?k=안성-창틀누수">안성 창틀누수</a>
@@ -1620,7 +1607,7 @@
             <a href="/?k=안성시-샷시실리콘">안성시 샷시실리콘</a>
             <a href="/?k=안성시-외벽보수">안성시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">읍·면·동 단위</h3>
+          <h4 class="sub-section-title">읍·면·동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=공도-창틀코킹">공도 창틀코킹</a>
             <a href="/?k=공도-창틀누수">공도 창틀누수</a>
@@ -1774,11 +1761,19 @@
             <a href="/?k=금석동-외벽보수">금석동 외벽보수</a>
           </div>
         </section>
+      </div>
+      <!-- SUBSECTION: 경기 서남부 -->
+      <div class="subsection-header" id="section-gyeonggi-west-south" style="margin: 30px 0 15px; padding-left: 10px; border-left: 4px solid var(--primary);">
+        <h3 style="font-size: 16px; font-weight: 700; color: #1E293B; margin: 0 0 4px;">경기 서남부</h3>
+        <p style="font-size: 12px; color: var(--text-muted); margin: 0;">안산, 시흥, 부천, 광명, 군포, 안양, 과천, 의왕 지역의 키워드 목록입니다.</p>
+      </div>
+
+      <div class="region-card-grid">
         <section class="region-card" id="region-ansan">
           <div class="city-header">
             <h2 class="city-title">안산시 <span class="city-badge">114개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%95%88%EC%82%B0-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">안산 창틀코킹</a>
             <a href="/?k=%EC%95%88%EC%82%B0-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">안산 창틀누수</a>
@@ -1793,7 +1788,7 @@
             <a href="/?k=%EC%95%88%EC%82%B0%EC%8B%9C-%EC%83%B7%EC%8B%9C%EC%8B%A4%EB%A6%AC%EC%BD%98">안산시 샷시실리콘</a>
             <a href="/?k=%EC%95%88%EC%82%B0%EC%8B%9C-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">안산시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">구 단위</h3>
+          <h4 class="sub-section-title">구 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%83%81%EB%A1%9D%EA%B5%AC-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">상록구 창틀코킹</a>
             <a href="/?k=%EC%83%81%EB%A1%9D%EA%B5%AC-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">상록구 창틀누수</a>
@@ -1808,7 +1803,7 @@
             <a href="/?k=%EB%8B%A8%EC%9B%90%EA%B5%AC-%EC%83%B7%EC%8B%9C%EC%8B%A4%EB%A6%AC%EC%BD%98">단원구 샷시실리콘</a>
             <a href="/?k=%EB%8B%A8%EC%9B%90%EA%B5%AC-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">단원구 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EA%B3%A0%EC%9E%94%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">고잔동 창틀코킹</a>
             <a href="/?k=%EA%B3%A0%EC%9E%94%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">고잔동 창틀누수</a>
@@ -1912,7 +1907,7 @@
           <div class="city-header">
             <h2 class="city-title">시흥시 <span class="city-badge">90개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%8B%9C%ED%9D%A5-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">시흥 창틀코킹</a>
             <a href="/?k=%EC%8B%9C%ED%9D%A5-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">시흥 창틀누수</a>
@@ -1927,7 +1922,7 @@
             <a href="/?k=%EC%8B%9C%ED%9D%A5%EC%8B%9C-%EC%83%B7%EC%8B%9C%EC%8B%A4%EB%A6%AC%EC%BD%98">시흥시 샷시실리콘</a>
             <a href="/?k=%EC%8B%9C%ED%9D%A5%EC%8B%9C-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">시흥시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%A0%95%EC%99%95%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">정왕동 창틀코킹</a>
             <a href="/?k=%EC%A0%95%EC%99%95%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">정왕동 창틀누수</a>
@@ -2025,7 +2020,7 @@
           <div class="city-header">
             <h2 class="city-title">부천시 <span class="city-badge">138개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EB%B6%80%EC%B2%9C-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">부천 창틀코킹</a>
             <a href="/?k=%EB%B6%80%EC%B2%9C-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">부천 창틀누수</a>
@@ -2040,7 +2035,7 @@
             <a href="/?k=%EB%B6%80%EC%B2%9C%EC%8B%9C-%EC%83%B7%EC%8B%9C%EC%8B%A4%EB%A6%AC%EC%BD%98">부천시 샷시실리콘</a>
             <a href="/?k=%EB%B6%80%EC%B2%9C%EC%8B%9C-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">부천시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">구 단위</h3>
+          <h4 class="sub-section-title">구 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%9B%90%EB%AF%B8%EA%B5%AC-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">원미구 창틀코킹</a>
             <a href="/?k=%EC%9B%90%EB%AF%B8%EA%B5%AC-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">원미구 창틀누수</a>
@@ -2061,7 +2056,7 @@
             <a href="/?k=%EC%98%A4%EC%A0%95%EA%B5%AC-%EC%83%B7%EC%8B%9C%EC%8B%A4%EB%A6%AC%EC%BD%98">오정구 샷시실리콘</a>
             <a href="/?k=%EC%98%A4%EC%A0%95%EA%B5%AC-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">오정구 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%A4%91%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">중동 창틀코킹</a>
             <a href="/?k=%EC%A4%91%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">중동 창틀누수</a>
@@ -2177,7 +2172,7 @@
           <div class="city-header">
             <h2 class="city-title">광명시 <span class="city-badge">36개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EA%B4%91%EB%AA%85-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">광명 창틀코킹</a>
             <a href="/?k=%EA%B4%91%EB%AA%85-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">광명 창틀누수</a>
@@ -2192,7 +2187,7 @@
             <a href="/?k=%EA%B4%91%EB%AA%85%EC%8B%9C-%EC%83%B7%EC%8B%9C%EC%8B%A4%EB%A6%AC%EC%BD%98">광명시 샷시실리콘</a>
             <a href="/?k=%EA%B4%91%EB%AA%85%EC%8B%9C-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">광명시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%B2%A0%EC%82%B0%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">철산동 창틀코킹</a>
             <a href="/?k=%EC%B2%A0%EC%82%B0%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">철산동 창틀누수</a>
@@ -2236,7 +2231,7 @@
           <div class="city-header">
             <h2 class="city-title">군포시 <span class="city-badge">66개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EA%B5%B0%ED%8F%AC-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">군포 창틀코킹</a>
             <a href="/?k=%EA%B5%B0%ED%8F%AC-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">군포 창틀누수</a>
@@ -2251,7 +2246,7 @@
             <a href="/?k=%EA%B5%B0%ED%8F%AC%EC%8B%9C-%EC%83%B7%EC%8B%9C%EC%8B%A4%EB%A6%AC%EC%BD%98">군포시 샷시실리콘</a>
             <a href="/?k=%EA%B5%B0%ED%8F%AC%EC%8B%9C-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">군포시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%82%B0%EB%B3%B8%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">산본동 창틀코킹</a>
             <a href="/?k=%EC%82%B0%EB%B3%B8%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">산본동 창틀누수</a>
@@ -2325,7 +2320,7 @@
           <div class="city-header">
             <h2 class="city-title">안양시 <span class="city-badge">96개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%95%88%EC%96%91-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">안양 창틀코킹</a>
             <a href="/?k=%EC%95%88%EC%96%91-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">안양 창틀누수</a>
@@ -2340,7 +2335,7 @@
             <a href="/?k=%EC%95%88%EC%96%91%EC%8B%9C-%EC%83%B7%EC%8B%9C%EC%8B%A4%EB%A6%AC%EC%BD%98">안양시 샷시실리콘</a>
             <a href="/?k=%EC%95%88%EC%96%91%EC%8B%9C-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">안양시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">구 단위</h3>
+          <h4 class="sub-section-title">구 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EB%A7%8C%EC%95%88%EA%B5%AC-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">만안구 창틀코킹</a>
             <a href="/?k=%EB%A7%8C%EC%95%88%EA%B5%AC-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">만안구 창틀누수</a>
@@ -2355,7 +2350,7 @@
             <a href="/?k=%EB%8F%99%EC%95%88%EA%B5%AC-%EC%83%B7%EC%8B%9C%EC%8B%A4%EB%A6%AC%EC%BD%98">동안구 샷시실리콘</a>
             <a href="/?k=%EB%8F%99%EC%95%88%EA%B5%AC-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">동안구 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%ED%8F%89%EC%B4%8C%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">평촌동 창틀코킹</a>
             <a href="/?k=%ED%8F%89%EC%B4%8C%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">평촌동 창틀누수</a>
@@ -2447,7 +2442,7 @@
           <div class="city-header">
             <h2 class="city-title">과천시 <span class="city-badge">36개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EA%B3%BC%EC%B2%9C-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">과천 창틀코킹</a>
             <a href="/?k=%EA%B3%BC%EC%B2%9C-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">과천 창틀누수</a>
@@ -2462,7 +2457,7 @@
             <a href="/?k=%EA%B3%BC%EC%B2%9C%EC%8B%9C-%EC%83%B7%EC%8B%9C%EC%8B%A4%EB%A6%AC%EC%BD%98">과천시 샷시실리콘</a>
             <a href="/?k=%EA%B3%BC%EC%B2%9C%EC%8B%9C-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">과천시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EB%B3%84%EC%96%91%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">별양동 창틀코킹</a>
             <a href="/?k=%EB%B3%84%EC%96%91%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">별양동 창틀누수</a>
@@ -2494,7 +2489,7 @@
           <div class="city-header">
             <h2 class="city-title">의왕시 <span class="city-badge">36개</span></h2>
           </div>
-          <h3 class="sub-section-title">시 단위</h3>
+          <h4 class="sub-section-title">시 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%9D%98%EC%99%95-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">의왕 창틀코킹</a>
             <a href="/?k=%EC%9D%98%EC%99%95-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">의왕 창틀누수</a>
@@ -2509,7 +2504,7 @@
             <a href="/?k=%EC%9D%98%EC%99%95%EC%8B%9C-%EC%83%B7%EC%8B%9C%EC%8B%A4%EB%A6%AC%EC%BD%98">의왕시 샷시실리콘</a>
             <a href="/?k=%EC%9D%98%EC%99%95%EC%8B%9C-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">의왕시 외벽보수</a>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EB%82%B4%EC%86%90%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">내손동 창틀코킹</a>
             <a href="/?k=%EB%82%B4%EC%86%90%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">내손동 창틀누수</a>
@@ -2540,25 +2535,17 @@
       </div>
     </section>
     <!-- ==========================================
-         SECTION 2: 인천 지역 키워드
+         PROVINCE: 인천
          ========================================== -->
-    <section id="section-incheon">
-      <div class="section-heading">
-        <h2>2. 인천 지역 키워드</h2>
-        <p>인천광역시 및 주요 구·군 단위 창틀코킹·빗물누수 방수 진단 서비스 제공 구역입니다.</p>
+    <section id="province-incheon">
+      <div class="section-heading" style="background: #EFF6FF; border-left: 5px solid #1B61FC; border-radius: 8px; padding: 16px 20px; margin-bottom: 30px;">
+        <h2 style="font-size: 22px; font-weight: 800; color: #0F172A; margin: 0 0 6px;">인천 키워드</h2>
+        <p style="font-size: 13px; color: var(--text-muted); margin: 0;">인천광역시 및 주요 구·군 단위 창틀코킹·빗물누수 방수 진단 서비스 제공 구역입니다.</p>
       </div>
-
-      <div class="region-filter">
-        <a href="#region-incheon-districts">인천 // 단위</a>
-        <a href="#region-incheon-yeonsu">연수</a>
-        <a href="#region-incheon-bupyeong">부평</a>
-        <a href="#region-incheon-namdong">남동</a>
-        <a href="#region-incheon-gyeyang">계양</a>
-        <a href="#region-incheon-seogu">서·검단·서해</a>
-        <a href="#region-incheon-junggu">중·영종·제물포</a>
-        <a href="#region-incheon-donggu">동</a>
-        <a href="#region-incheon-ganghwa">강화</a>
-        <a href="#region-incheon-ongjin">옹진</a>
+      <!-- SUBSECTION: 인천 시·군·구 -->
+      <div class="subsection-header" id="section-incheon-district" style="margin: 30px 0 15px; padding-left: 10px; border-left: 4px solid var(--primary);">
+        <h3 style="font-size: 16px; font-weight: 700; color: #1E293B; margin: 0 0 4px;">인천 시·군·구</h3>
+        <p style="font-size: 12px; color: var(--text-muted); margin: 0;">인천광역시 및 각 군·구 단위 지역의 키워드 목록입니다.</p>
       </div>
 
       <div class="region-card-grid">
@@ -2566,7 +2553,7 @@
           <div class="city-header">
             <h2 class="city-title">인천 시/구/군 단위 <span class="city-badge">78개</span></h2>
           </div>
-          <h3 class="sub-section-title">광역/시/군/구 단위</h3>
+          <h4 class="sub-section-title">광역/시/군/구 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%9D%B8%EC%B2%9C-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">인천 창틀코킹</a>
             <a href="/?k=%EC%9D%B8%EC%B2%9C-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">인천 창틀누수</a>
@@ -2648,11 +2635,19 @@
             <a href="/?k=%EA%B2%80%EB%8B%A8%EA%B5%AC-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98">검단구 외벽보수</a>
           </div>
         </section>
+      </div>
+      <!-- SUBSECTION: 인천 읍·면·동 -->
+      <div class="subsection-header" id="section-incheon-dong" style="margin: 30px 0 15px; padding-left: 10px; border-left: 4px solid var(--primary);">
+        <h3 style="font-size: 16px; font-weight: 700; color: #1E293B; margin: 0 0 4px;">인천 읍·면·동</h3>
+        <p style="font-size: 12px; color: var(--text-muted); margin: 0;">인천 전체 지역의 읍·면·동 단위 상세 롱테일 키워드 목록입니다.</p>
+      </div>
+
+      <div class="region-card-grid">
         <section class="region-card" id="region-incheon-yeonsu">
           <div class="city-header">
             <h2 class="city-title">연수구 <span class="city-badge">36개</span></h2>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%86%A1%EB%8F%84%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">송도동 창틀코킹</a>
             <a href="/?k=%EC%86%A1%EB%8F%84%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">송도동 창틀누수</a>
@@ -2696,7 +2691,7 @@
           <div class="city-header">
             <h2 class="city-title">부평구 <span class="city-badge">42개</span></h2>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EB%B6%80%ED%8F%89%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">부평동 창틀코킹</a>
             <a href="/?k=%EB%B6%80%ED%8F%89%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">부평동 창틀누수</a>
@@ -2746,7 +2741,7 @@
           <div class="city-header">
             <h2 class="city-title">남동구 <span class="city-badge">48개</span></h2>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EA%B5%AC%EC%9B%94%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">구월동 창틀코킹</a>
             <a href="/?k=%EA%B5%AC%EC%9B%94%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">구월동 창틀누수</a>
@@ -2802,7 +2797,7 @@
           <div class="city-header">
             <h2 class="city-title">계양구 <span class="city-badge">30개</span></h2>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%ED%9A%A8%EC%84%B1%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">효성동 창틀코킹</a>
             <a href="/?k=%ED%9A%A8%EC%84%B1%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">효성동 창틀누수</a>
@@ -2840,7 +2835,7 @@
           <div class="city-header">
             <h2 class="city-title">서구·검단구·서해구 <span class="city-badge">96개</span></h2>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EA%B2%80%EC%95%94%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">검암동 창틀코킹</a>
             <a href="/?k=%EA%B2%80%EC%95%94%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">검암동 창틀누수</a>
@@ -2944,7 +2939,7 @@
           <div class="city-header">
             <h2 class="city-title">중구·영종구·제물포구 <span class="city-badge">90개</span></h2>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EC%8B%A0%ED%9D%A5%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">신흥동 창틀코킹</a>
             <a href="/?k=%EC%8B%A0%ED%9D%A5%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">신흥동 창틀누수</a>
@@ -3042,7 +3037,7 @@
           <div class="city-header">
             <h2 class="city-title">동구 <span class="city-badge">42개</span></h2>
           </div>
-          <h3 class="sub-section-title">동 단위</h3>
+          <h4 class="sub-section-title">동 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EB%A7%8C%EC%84%9D%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">만석동 창틀코킹</a>
             <a href="/?k=%EB%A7%8C%EC%84%9D%EB%8F%99-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">만석동 창틀누수</a>
@@ -3092,7 +3087,7 @@
           <div class="city-header">
             <h2 class="city-title">강화군 <span class="city-badge">84개</span></h2>
           </div>
-          <h3 class="sub-section-title">읍·면 단위</h3>
+          <h4 class="sub-section-title">읍·면 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EA%B0%95%ED%99%94%EC%9D%8D-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">강화읍 창틀코킹</a>
             <a href="/?k=%EA%B0%95%ED%99%94%EC%9D%8D-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">강화읍 창틀누수</a>
@@ -3184,7 +3179,7 @@
           <div class="city-header">
             <h2 class="city-title">옹진군 <span class="city-badge">48개</span></h2>
           </div>
-          <h3 class="sub-section-title">면 단위</h3>
+          <h4 class="sub-section-title">면 단위</h4>
           <div class="keyword-link-grid">
             <a href="/?k=%EB%B6%81%EB%8F%84%EB%A9%B4-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9">북도면 창틀코킹</a>
             <a href="/?k=%EB%B6%81%EB%8F%84%EB%A9%B4-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98">북도면 창틀누수</a>
@@ -3241,7 +3236,7 @@
   </main>
 
   <footer class="footer-note">
-    <p>올케어 인천·경기 서남부 키워드 허브 · 내부 수집용 페이지 · 네비게이션 및 메뉴 비노출</p>
+    <p>올케어 인천·경기 남부·서남부 키워드 허브 · 내부 수집용 페이지 · 네비게이션 및 메뉴 비노출</p>
     <p>© Allcare Gyeonggi & Incheon. All Rights Reserved.</p>
   </footer>
 </div>
