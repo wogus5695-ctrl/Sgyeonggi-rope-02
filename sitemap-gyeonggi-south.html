@@ -256,16 +256,48 @@
     }
 
     /* 대주제 섹션 타이틀 */
-    .main-section-title {
-      font-size: 20px;
-      font-weight: 800;
-      color: #0F172A;
+    .section-heading {
       margin: 50px 0 20px;
       padding: 12px 18px;
       background: #EFF6FF;
       border-left: 5px solid #1B61FC;
       border-radius: 0 8px 8px 0;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .section-heading h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0 0 6px;
+    }
+    .section-heading p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* 지역 필터 버튼 */
+    .region-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 0 4px;
+    }
+    .region-filter a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .region-filter a:hover {
+      background: #E2E8F0;
+      color: #0F172A;
     }
 
     /* 지역 카드 그리드 */
@@ -365,19 +397,23 @@
     <!-- ==========================================
          SECTION 1: 기존 경기 남부 키워드
          ========================================== -->
-    <h2 class="main-section-title" id="section-gyeonggi-south">1. 기존 경기 남부 키워드</h2>
+    <section id="section-gyeonggi-south">
+      <div class="section-heading">
+        <h2>1. 기존 경기 남부 키워드</h2>
+        <p>수원, 화성, 오산, 용인, 이천, 평택, 안성 지역의 창틀코킹·창틀누수·빗물누수 키워드입니다.</p>
+      </div>
 
-    <nav class="hub-section-nav" style="box-shadow: none; border: none; margin-bottom: 20px; background: transparent; padding: 0;">
-      <a href="#suwon">수원</a>
-      <a href="#hwaseong">화성</a>
-      <a href="#osan">오산</a>
-      <a href="#yongin">용인</a>
-      <a href="#icheon">이천</a>
-      <a href="#pyeongtaek">평택</a>
-      <a href="#anseong">안성</a>
-    </nav>
+      <div class="region-filter">
+        <a href="#region-suwon">수원</a>
+        <a href="#region-hwaseong">화성</a>
+        <a href="#region-osan">오산</a>
+        <a href="#region-yongin">용인</a>
+        <a href="#region-icheon">이천</a>
+        <a href="#region-pyeongtaek">평택</a>
+        <a href="#region-anseong">안성</a>
+      </div>
     <div class="region-card-grid">
-<section class="region-card" id="suwon">
+<section class="region-card" id="region-suwon">
       <div class="city-header">
         <h2 class="city-title">수원 <span class="city-badge">198개</span></h2>
       </div>
@@ -596,7 +632,7 @@
     <!-- ==========================================
          CITY: 화성 (총 198개 키워드)
          ========================================== -->
-    <section class="region-card" id="hwaseong">
+    <section class="region-card" id="region-hwaseong">
       <div class="city-header">
         <h2 class="city-title">화성 <span class="city-badge">198개</span></h2>
       </div>
@@ -811,7 +847,7 @@
     <!-- ==========================================
          CITY: 오산 (총 138개 키워드)
          ========================================== -->
-    <section class="region-card" id="osan">
+    <section class="region-card" id="region-osan">
       <div class="city-header">
         <h2 class="city-title">오산 <span class="city-badge">138개</span></h2>
       </div>
@@ -966,7 +1002,7 @@
     <!-- ==========================================
          CITY: 용인 (총 246개 키워드)
          ========================================== -->
-    <section class="region-card" id="yongin">
+    <section class="region-card" id="region-yongin">
       <div class="city-header">
         <h2 class="city-title">용인 <span class="city-badge">246개</span></h2>
       </div>
@@ -1233,7 +1269,7 @@
     <!-- ==========================================
          CITY: 이천 (총 156개 키워드)
          ========================================== -->
-    <section class="region-card" id="icheon">
+    <section class="region-card" id="region-icheon">
       <div class="city-header">
         <h2 class="city-title">이천 <span class="city-badge">156개</span></h2>
       </div>
@@ -1406,7 +1442,7 @@
     <!-- ==========================================
          CITY: 평택 (총 174개 키워드)
          ========================================== -->
-    <section class="region-card" id="pyeongtaek">
+    <section class="region-card" id="region-pyeongtaek">
       <div class="city-header">
         <h2 class="city-title">평택 <span class="city-badge">174개</span></h2>
       </div>
@@ -1597,7 +1633,7 @@
     <!-- ==========================================
          CITY: 안성 (총 162개 키워드)
          ========================================== -->
-    <section class="region-card" id="anseong">
+    <section class="region-card" id="region-anseong">
       <div class="city-header">
         <h2 class="city-title">안성 <span class="city-badge">162개</span></h2>
       </div>
@@ -1775,11 +1811,16 @@
 
   
     </div> <!-- End of Section 1 region-grid -->
+    </section>
 
     <!-- ==========================================
          SECTION 2: 260704 추가 키워드: 인천 시·군·구
          ========================================== -->
-    <h2 class="main-section-title" id="section-incheon-district">2. 260704 추가 키워드: 인천 시·군·구</h2>
+    <section id="section-incheon-district">
+      <div class="section-heading">
+        <h2>2. 260704 추가 키워드: 인천 시·군·구</h2>
+        <p>인천광역시 및 각 군·구 단위 지역에 대한 창틀 코킹 상담 및 안내 키워드입니다.</p>
+      </div>
     <div class="region-card-grid">
       <section class="region-card">
         <div class="city-header">
@@ -1870,11 +1911,16 @@
       </div>
       </section>
     </div>
+    </section>
 
     <!-- ==========================================
          SECTION 3: 260704 추가 키워드: 인천 읍·면·동
          ========================================== -->
-    <h2 class="main-section-title" id="section-incheon-dong">3. 260704 추가 키워드: 인천 읍·면·동</h2>
+    <section id="section-incheon-dong">
+      <div class="section-heading">
+        <h2>3. 260704 추가 키워드: 인천 읍·면·동</h2>
+        <p>인천 전체 지역의 읍·면·동 단위 상세 롱테일 키워드 상담 키워드입니다.</p>
+      </div>
     <div class="region-card-grid">
       <section class="region-card">
         <div class="city-header">
@@ -2421,11 +2467,16 @@
       </div>
       </section>
     </div>
+    </section>
 
     <!-- ==========================================
          SECTION 4: 260704 추가 키워드: 경기 서남부 시·구
          ========================================== -->
-    <h2 class="main-section-title" id="section-gyeonggi-west-district">4. 260704 추가 키워드: 경기 서남부 시·구</h2>
+    <section id="section-gyeonggi-west-district">
+      <div class="section-heading">
+        <h2>4. 260704 추가 키워드: 경기 서남부 시·구</h2>
+        <p>안산, 시흥, 부천 등 경기 서남부 주요 시·구 단위 지역의 키워드입니다.</p>
+      </div>
     <div class="region-card-grid">
       <section class="region-card">
         <div class="city-header">
@@ -2576,11 +2627,16 @@
       </div>
       </section>
     </div>
+    </section>
 
     <!-- ==========================================
          SECTION 5: 260704 추가 키워드: 경기 서남부 읍·면·동
          ========================================== -->
-    <h2 class="main-section-title" id="section-gyeonggi-west-dong">5. 260704 추가 키워드: 경기 서남부 읍·면·동</h2>
+    <section id="section-gyeonggi-west-dong">
+      <div class="section-heading">
+        <h2>5. 260704 추가 키워드: 경기 서남부 읍·면·동</h2>
+        <p>경기 서남부(안산, 시흥, 부천, 광명, 군포, 안양, 과천, 의왕)의 읍·면·동 단위 상세 키워드입니다.</p>
+      </div>
     <div class="region-card-grid">
       <section class="region-card">
         <div class="city-header">
@@ -3121,6 +3177,7 @@
       </div>
       </section>
     </div>
+    </section>
   </main>
 
   <footer class="footer-note">
