@@ -253,7 +253,10 @@ function buildDynamicMeta(region, task, rawK) {
       description = `${regionTask}, 비 온 뒤 창틀 주변 물기·실리콘 갈라짐·외벽 균열이 보인다면 유입 경로와 현장 상태를 함께 확인해 보수 방향을 안내합니다.`;
   }
 
-  const canonical = `https://www.rainguard.co.kr/?k=${encodeURIComponent(rawK)}`;
+  let canonical = `https://www.rainguard.co.kr/?k=${encodeURIComponent(rawK)}`;
+  if (REGION_MAP[region] === '서울') {
+    canonical = `https://www.rainguard.co.kr/seoul/${romanize(region)}/${getTaskSlug(task)}`;
+  }
   return { title, description, canonical, regionTask, region, task, h1Suffix };
 }
 
@@ -343,8 +346,141 @@ function reorderPortfolioHTML(html, task) {
   return html.replace(gridInner, newInner);
 }
 
+// Romanizer & Slug Mapping for Seoul pretty URLs
+const CHOSUNG = [
+  'g', 'kk', 'n', 'd', 'tt', 'r', 'm', 'b', 'pp',
+  's', 'ss', '', 'j', 'jj', 'ch', 'k', 't', 'p', 'h'
+];
+const JUNGSUNG = [
+  'a', 'ae', 'ya', 'yae', 'eo', 'e', 'yeo', 'ye', 'o', 'wa',
+  'wae', 'oe', 'yo', 'u', 'wo', 'we', 'wi', 'yu', 'eu', 'ui', 'i'
+];
+const JONGSUNG = [
+  '', 'k', 'k', 'k', 'n', 'n', 'n', 't', 'l', 'l', 'l',
+  'l', 'l', 'l', 'l', 'l', 'm', 'p', 'p', 't', 't',
+  'ng', 't', 't', 'k', 't', 'p', 't'
+];
+
+function romanize(word) {
+  if (word === '서울 중구') return 'seoul-jung-gu';
+  
+  let syllables = [];
+  for (let i = 0; i < word.length; i++) {
+    const char = word[i];
+    const code = char.charCodeAt(0) - 0xAC00;
+    if (code >= 0 && code <= 11172) {
+      const cho = Math.floor(code / 588);
+      const jung = Math.floor((code % 588) / 28);
+      const jong = code % 28;
+      syllables.push({ cho, jung, jong, char });
+    } else {
+      syllables.push(char);
+    }
+  }
+
+  let parts = [];
+  for (let i = 0; i < syllables.length; i++) {
+    const s = syllables[i];
+    if (typeof s === 'string') {
+      parts.push(s);
+      continue;
+    }
+
+    let choChar = CHOSUNG[s.cho];
+    let jungChar = JUNGSUNG[s.jung];
+    let jongChar = JONGSUNG[s.jong];
+
+    if (s.char === '십' && i + 1 < syllables.length && syllables[i+1].char === '리') {
+      jongChar = 'm';
+    }
+    if (s.char === '리' && i > 0 && syllables[i-1].char === '십') {
+      choChar = 'n';
+    }
+    if (s.char === '량' && i + 1 < syllables.length && syllables[i+1].char === '리') {
+      jongChar = 'ng';
+    }
+    if (s.char === '리' && i > 0 && syllables[i-1].char === '량') {
+      choChar = 'n';
+    }
+
+    parts.push(choChar + jungChar + jongChar);
+  }
+
+  let mainName = '';
+  let suffix = '';
+  
+  if (word.endsWith('동')) {
+    mainName = parts.slice(0, parts.length - 1).join('');
+    suffix = '-dong';
+  } else if (word.endsWith('구')) {
+    mainName = parts.slice(0, parts.length - 1).join('');
+    suffix = '-gu';
+  } else {
+    mainName = parts.join('');
+  }
+
+  return mainName + suffix;
+}
+
+const SLUG_TO_KOREAN = {};
+Object.keys(REGION_MAP).forEach(k => {
+  if (REGION_MAP[k] === '서울') {
+    const slug = romanize(k);
+    SLUG_TO_KOREAN[slug] = k;
+  }
+});
+
+const TASK_SLUG_MAP = {
+  'window-caulking': '창틀코킹',
+  'window-leak': '창틀누수',
+  'rain-leak': '빗물누수',
+  'window-silicone': '창틀실리콘',
+  'sash-silicone': '샷시실리콘',
+  'exterior-repair': '외벽보수'
+};
+
+function getTaskSlug(task) {
+  const map = {
+    '창틀코킹': 'window-caulking',
+    '창틀누수': 'window-leak',
+    '빗물누수': 'rain-leak',
+    '창틀실리콘': 'window-silicone',
+    '샷시실리콘': 'sash-silicone',
+    '외벽보수': 'exterior-repair'
+  };
+  return map[task] || '';
+}
+
+function cleanSeoulRegionName(region) {
+  const seoulGus = [
+    '종로구', '중구', '용산구', '성동구', '광진구', '동대문구', '중랑구', '성북구', '강북구', '도봉구',
+    '노원구', '은평구', '서대문구', '마포구', '양천구', '강서구', '구로구', '금천구',
+    '영등포구', '동작구', '관악구', '서초구', '강남구', '송파구', '강동구'
+  ];
+  for (const gu of seoulGus) {
+    if (region.startsWith(gu + ' ') && region.length > gu.length + 1) {
+      return region.substring(gu.length + 1).trim();
+    }
+  }
+  return region;
+}
+
 const server = http.createServer((req, res) => {
   let urlPath = req.url.split('?')[0];
+  let isSeoulPrettyUrl = false;
+  let seoulRegionSlug = '';
+  let seoulTaskSlug = '';
+
+  if (urlPath.startsWith('/seoul/')) {
+    const parts = urlPath.split('/').filter(Boolean);
+    if (parts.length === 3 && parts[0] === 'seoul') {
+      isSeoulPrettyUrl = true;
+      seoulRegionSlug = parts[1];
+      seoulTaskSlug = parts[2];
+      urlPath = '/index.html';
+    }
+  }
+
   if (urlPath === '/') urlPath = '/index.html';
 
   const diskPath = urlPath === '/index.html' ? '/template.html' : urlPath;
@@ -370,7 +506,14 @@ const server = http.createServer((req, res) => {
       if (urlPath === '/index.html') {
         let html = data;
         let kValue = '';
-        if (req.url.includes('?')) {
+
+        if (isSeoulPrettyUrl) {
+          const regionKorean = SLUG_TO_KOREAN[seoulRegionSlug];
+          const taskKorean = TASK_SLUG_MAP[seoulTaskSlug];
+          if (regionKorean && taskKorean) {
+            kValue = `${regionKorean}-${taskKorean}`;
+          }
+        } else if (req.url.includes('?')) {
           try {
             const urlObj = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
             kValue = urlObj.searchParams.get('k') || '';
@@ -380,6 +523,7 @@ const server = http.createServer((req, res) => {
         let region = '';
         let task = '';
         let isDynamic = false;
+
 
         if (kValue) {
           const decoded = decodeURIComponent(kValue).trim();
@@ -403,6 +547,20 @@ const server = http.createServer((req, res) => {
         }
 
         if (isDynamic) {
+          const cleanedRegion = cleanSeoulRegionName(region);
+          const isSeoul = REGION_MAP[cleanedRegion] === '서울' || REGION_MAP[region] === '서울';
+          const hasUncleanedRegion = cleanedRegion !== region;
+
+          if (isSeoul && (!isSeoulPrettyUrl || hasUncleanedRegion)) {
+            const destRegionSlug = romanize(cleanedRegion);
+            const destTaskSlug = getTaskSlug(task);
+            res.writeHead(301, {
+              'Location': `/seoul/${destRegionSlug}/${destTaskSlug}`
+            });
+            res.end();
+            return;
+          }
+
           const rawK = kValue;
           const meta = buildDynamicMeta(region, task, rawK);
           const { regionTask } = meta;

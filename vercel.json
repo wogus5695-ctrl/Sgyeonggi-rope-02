@@ -9,6 +9,7 @@
     { "src": "images/**", "use": "@vercel/static" }
   ],
   "rewrites": [
+    { "source": "/seoul/:region/:task", "destination": "/api/ssr.js?seoul_region=:region&seoul_task=:task" },
     { "source": "/", "destination": "/api/ssr.js" },
     { "source": "/index.html", "destination": "/api/ssr.js" }
   ]
