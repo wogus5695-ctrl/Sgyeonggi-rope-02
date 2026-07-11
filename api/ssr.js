@@ -232,10 +232,7 @@ function buildDynamicMeta(region, task, rawK) {
       description = `${regionTask}, 비 온 뒤 창틀 주변 물기·실리콘 갈라짐·외벽 균열이 보인다면 유입 경로와 현장 상태를 함께 확인해 보수 방향을 안내합니다.`;
   }
 
-  let canonical = `https://www.rainguard.co.kr/?k=${encodeURIComponent(rawK)}`;
-  if (REGION_MAP[region] === '서울') {
-    canonical = `https://www.rainguard.co.kr/seoul/${romanize(region)}/${getTaskSlug(task)}`;
-  }
+  const canonical = `https://www.rainguard.co.kr/?k=${encodeURIComponent(rawK)}`;
   return { title, description, canonical, regionTask, region, task, h1Suffix };
 }
 
@@ -445,6 +442,24 @@ function cleanSeoulRegionName(region) {
 }
 
 module.exports = (req, res) => {
+  if (req.query.seoul_region && req.query.seoul_task) {
+    let slug = req.query.seoul_region;
+    if (slug.includes('-gu-') && slug.endsWith('-dong')) {
+      const parts = slug.split('-');
+      if (parts.length >= 2) {
+        slug = parts.slice(parts.length - 2).join('-');
+      }
+    }
+    const regionKorean = SLUG_TO_KOREAN[slug];
+    const taskKorean = TASK_SLUG_MAP[req.query.seoul_task];
+    if (regionKorean && taskKorean) {
+      const redirectUrl = `/?k=${encodeURIComponent(regionKorean + '-' + taskKorean)}`;
+      res.writeHead(301, { 'Location': redirectUrl });
+      res.end();
+      return;
+    }
+  }
+
   const htmlPath = path.join(process.cwd(), 'template.html');
 
   fs.readFile(htmlPath, 'utf8', (err, html) => {
@@ -454,31 +469,9 @@ module.exports = (req, res) => {
     }
 
     let rawK = req.query.k || '';
-    if (req.query.seoul_region && req.query.seoul_task) {
-      const regionKorean = SLUG_TO_KOREAN[req.query.seoul_region];
-      const taskKorean = TASK_SLUG_MAP[req.query.seoul_task];
-      if (regionKorean && taskKorean) {
-        rawK = `${regionKorean}-${taskKorean}`;
-      }
-    }
     const parsed = parseKeyword(rawK);
 
     if (parsed) {
-      const cleanedRegion = cleanSeoulRegionName(parsed.region);
-      const isSeoul = REGION_MAP[cleanedRegion] === '서울' || REGION_MAP[parsed.region] === '서울';
-      const isPrettyRequest = !!(req.query.seoul_region && req.query.seoul_task);
-      const hasUncleanedRegion = cleanedRegion !== parsed.region;
-
-      if (isSeoul && (!isPrettyRequest || hasUncleanedRegion)) {
-        const destRegionSlug = romanize(cleanedRegion);
-        const destTaskSlug = getTaskSlug(parsed.task);
-        res.writeHead(301, {
-          'Location': `/seoul/${destRegionSlug}/${destTaskSlug}`
-        });
-        res.end();
-        return;
-      }
-
       const meta = buildDynamicMeta(parsed.region, parsed.task, rawK);
       const { region, task, regionTask } = meta;
       const content = getTaskContent(task, regionTask, region);

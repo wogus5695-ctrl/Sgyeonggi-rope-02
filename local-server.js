@@ -253,10 +253,7 @@ function buildDynamicMeta(region, task, rawK) {
       description = `${regionTask}, 비 온 뒤 창틀 주변 물기·실리콘 갈라짐·외벽 균열이 보인다면 유입 경로와 현장 상태를 함께 확인해 보수 방향을 안내합니다.`;
   }
 
-  let canonical = `https://www.rainguard.co.kr/?k=${encodeURIComponent(rawK)}`;
-  if (REGION_MAP[region] === '서울') {
-    canonical = `https://www.rainguard.co.kr/seoul/${romanize(region)}/${getTaskSlug(task)}`;
-  }
+  const canonical = `https://www.rainguard.co.kr/?k=${encodeURIComponent(rawK)}`;
   return { title, description, canonical, regionTask, region, task, h1Suffix };
 }
 
@@ -467,17 +464,26 @@ function cleanSeoulRegionName(region) {
 
 const server = http.createServer((req, res) => {
   let urlPath = req.url.split('?')[0];
-  let isSeoulPrettyUrl = false;
-  let seoulRegionSlug = '';
-  let seoulTaskSlug = '';
 
   if (urlPath.startsWith('/seoul/')) {
     const parts = urlPath.split('/').filter(Boolean);
     if (parts.length === 3 && parts[0] === 'seoul') {
-      isSeoulPrettyUrl = true;
-      seoulRegionSlug = parts[1];
-      seoulTaskSlug = parts[2];
-      urlPath = '/index.html';
+      let slug = parts[1];
+      const taskSlug = parts[2];
+      if (slug.includes('-gu-') && slug.endsWith('-dong')) {
+        const subParts = slug.split('-');
+        if (subParts.length >= 2) {
+          slug = subParts.slice(subParts.length - 2).join('-');
+        }
+      }
+      const regionKorean = SLUG_TO_KOREAN[slug];
+      const taskKorean = TASK_SLUG_MAP[taskSlug];
+      if (regionKorean && taskKorean) {
+        const redirectUrl = `/?k=${encodeURIComponent(regionKorean + '-' + taskKorean)}`;
+        res.writeHead(301, { 'Location': redirectUrl });
+        res.end();
+        return;
+      }
     }
   }
 
@@ -507,13 +513,7 @@ const server = http.createServer((req, res) => {
         let html = data;
         let kValue = '';
 
-        if (isSeoulPrettyUrl) {
-          const regionKorean = SLUG_TO_KOREAN[seoulRegionSlug];
-          const taskKorean = TASK_SLUG_MAP[seoulTaskSlug];
-          if (regionKorean && taskKorean) {
-            kValue = `${regionKorean}-${taskKorean}`;
-          }
-        } else if (req.url.includes('?')) {
+        if (req.url.includes('?')) {
           try {
             const urlObj = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
             kValue = urlObj.searchParams.get('k') || '';
@@ -547,20 +547,6 @@ const server = http.createServer((req, res) => {
         }
 
         if (isDynamic) {
-          const cleanedRegion = cleanSeoulRegionName(region);
-          const isSeoul = REGION_MAP[cleanedRegion] === '서울' || REGION_MAP[region] === '서울';
-          const hasUncleanedRegion = cleanedRegion !== region;
-
-          if (isSeoul && (!isSeoulPrettyUrl || hasUncleanedRegion)) {
-            const destRegionSlug = romanize(cleanedRegion);
-            const destTaskSlug = getTaskSlug(task);
-            res.writeHead(301, {
-              'Location': `/seoul/${destRegionSlug}/${destTaskSlug}`
-            });
-            res.end();
-            return;
-          }
-
           const rawK = kValue;
           const meta = buildDynamicMeta(region, task, rawK);
           const { regionTask } = meta;

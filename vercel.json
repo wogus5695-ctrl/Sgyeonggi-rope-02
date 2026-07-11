@@ -8,6 +8,19 @@
     { "src": "css/**", "use": "@vercel/static" },
     { "src": "images/**", "use": "@vercel/static" }
   ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "rainguard.co.kr"
+        }
+      ],
+      "destination": "https://www.rainguard.co.kr/:path*",
+      "statusCode": 301
+    }
+  ],
   "rewrites": [
     { "source": "/seoul/:region/:task", "destination": "/api/ssr.js?seoul_region=:region&seoul_task=:task" },
     { "source": "/", "destination": "/api/ssr.js" },
