@@ -357,6 +357,12 @@
         padding: 8px 10px;
       }
     }
+    @media (max-width: 768px) {
+      .manager-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -382,6 +388,66 @@
     <div class="stats-card">
       <span class="stats-label">작업명 수</span>
       <span class="stats-val">10개</span>
+    </div>
+  </section>
+
+  <!-- 담당자별 관리 구역 섹션 추가 -->
+  <section class="manager-section" style="margin-bottom: 40px;">
+    <h2 style="font-size: 18px; font-weight: 700; color: #0F172A; margin: 0 0 16px; display: flex; align-items: center; gap: 8px;">
+      💼 담당자별 관리 구역 안내
+    </h2>
+    <div class="manager-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+      
+      <!-- 경기제로도장방수 담당 구역 -->
+      <div class="manager-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
+          <span style="background: #FFF1F2; color: #E11D48; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; text-transform: uppercase;">예외 담당</span>
+          <h3 style="font-size: 16px; font-weight: 700; margin: 0; color: #0F172A;">경기제로도장방수</h3>
+        </div>
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px; color: var(--text-main); margin-bottom: 14px;">
+          <tr style="border-bottom: 1px solid #F1F5F9;"><td style="padding: 6px 0; font-weight: 600; width: 95px; color: var(--text-muted);">사업자명</td><td style="padding: 6px 0;">최우영</td></tr>
+          <tr style="border-bottom: 1px solid #F1F5F9;"><td style="padding: 6px 0; font-weight: 600; color: var(--text-muted);">등록번호</td><td style="padding: 6px 0;">724-71-00799</td></tr>
+          <tr style="border-bottom: 1px solid #F1F5F9;"><td style="padding: 6px 0; font-weight: 600; color: var(--text-muted);">연락처</td><td style="padding: 6px 0;"><a href="tel:01077763029" style="color: var(--primary); font-weight: 700; text-decoration: none;">010-7776-3029</a></td></tr>
+          <tr style="border-bottom: 1px solid #F1F5F9;"><td style="padding: 6px 0; font-weight: 600; color: var(--text-muted);">카카오 채널</td><td style="padding: 6px 0;"><a href="http://pf.kakao.com/_xkhUfX" target="_blank" style="color: var(--primary); text-decoration: none;">채널 바로가기 ➔</a></td></tr>
+          <tr><td style="padding: 8px 0 4px; font-weight: 600; color: var(--text-muted); vertical-align: top;">담당 권역</td><td style="padding: 8px 0 4px; line-height: 1.5; font-weight: 600; color: #E11D48;">광주 / 양평 / 여주 / 이천 / 용인 / 안성 / 오산 / 화성 / 평택 <span style="display:block; font-size: 11px; font-weight: 400; color: var(--text-muted); margin-top: 2px;">(해당 시·군·구 및 하위 모든 읍·면·동 포함)</span></td></tr>
+        </table>
+        <div style="font-size: 12px; background: var(--bg-main); border-radius: 8px; padding: 10px 12px; border: 1px solid var(--border-color);">
+          <strong>🔗 예외 분기 테스트:</strong>
+          <div style="margin-top: 6px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <a href="/?k=%EA%B4%91%EC%A3%BC%EC%8B%9C-%EC%98%A5%EC%83%81%EB%B0%A9%EC%88%98" target="_blank" style="color: var(--primary); text-decoration: none;">광주시 옥상방수</a> ·
+            <a href="/?k=%EA%B3%A4%EC%A7%80%EC%95%95%EC%9D%B1-%EC%99%B8%EB%B2%BD%EB%88%84%EC%88%98" target="_blank" style="color: var(--primary); text-decoration: none;">곤지암읍 외벽누수</a> ·
+            <a href="/?k=%EC%98%A5%EC%B2%9C%EB%A9%B4-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98" target="_blank" style="color: var(--primary); text-decoration: none;">옥천면 창틀누수</a> ·
+            <a href="/?k=%EC%9A%A9%EC%9D%B8%EC%8B%9C-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98" target="_blank" style="color: var(--primary); text-decoration: none;">용인시 창틀누수</a> ·
+            <a href="/?k=%ED%8F%89%ED%83%9D%EC%8B%9C-%EC%99%B8%EB%B2%BD%EB%B0%A9%EC%88%98" target="_blank" style="color: var(--primary); text-decoration: none;">평택시 외벽방수</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 올케어 담당 구역 -->
+      <div class="manager-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
+          <span style="background: #EFF6FF; color: #1B61FC; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; text-transform: uppercase;">기본 담당</span>
+          <h3 style="font-size: 16px; font-weight: 700; margin: 0; color: #0F172A;">올케어</h3>
+        </div>
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px; color: var(--text-main); margin-bottom: 14px;">
+          <tr style="border-bottom: 1px solid #F1F5F9;"><td style="padding: 6px 0; font-weight: 600; width: 95px; color: var(--text-muted);">사업자명</td><td style="padding: 6px 0;">김동명</td></tr>
+          <tr style="border-bottom: 1px solid #F1F5F9;"><td style="padding: 6px 0; font-weight: 600; color: var(--text-muted);">등록번호</td><td style="padding: 6px 0;">224-77-00461</td></tr>
+          <tr style="border-bottom: 1px solid #F1F5F9;"><td style="padding: 6px 0; font-weight: 600; color: var(--text-muted);">연락처</td><td style="padding: 6px 0;"><a href="tel:05078713550" style="color: var(--primary); font-weight: 700; text-decoration: none;">050-7871-3550</a></td></tr>
+          <tr style="border-bottom: 1px solid #F1F5F9;"><td style="padding: 6px 0; font-weight: 600; color: var(--text-muted);">카카오 채널</td><td style="padding: 6px 0;"><a href="http://pf.kakao.com/_LRmxfX" target="_blank" style="color: var(--primary); text-decoration: none;">채널 바로가기 ➔</a></td></tr>
+          <tr><td style="padding: 8px 0 4px; font-weight: 600; color: var(--text-muted); vertical-align: top;">담당 권역</td><td style="padding: 8px 0 4px; line-height: 1.5; font-weight: 600; color: #1B61FC;">서울, 인천, 수원, 부천, 안산, 시흥, 광명, 군포, 안양, 과천, 의왕 등 <span style="display:block; font-size: 11px; font-weight: 400; color: var(--text-muted); margin-top: 2px;">(예외 담당 권역을 제외한 모든 수도권 지역)</span></td></tr>
+        </table>
+        <div style="font-size: 12px; background: var(--bg-main); border-radius: 8px; padding: 10px 12px; border: 1px solid var(--border-color);">
+          <strong>🔗 기본 분기 테스트:</strong>
+          <div style="margin-top: 6px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <a href="/?k=%EA%B0%95%EB%82%A8%EA%B5%AC-%EC%98%A5%EC%83%81%EB%B0%A9%EC%88%98" target="_blank" style="color: var(--primary); text-decoration: none;">강남구 옥상방수</a> ·
+            <a href="/?k=%EA%B0%80%ED%9A%8C%EB%8F%99-%EC%B0%BD%ED%8B%80%EC%BD%94%ED%82%B9" target="_blank" style="color: var(--primary); text-decoration: none;">가회동 창틀코킹</a> ·
+            <a href="/?k=%EC%86%A1%ED%8C%8C%EA%B5%AC-%EC%99%B8%EB%B2%BD%EB%88%84%EC%88%98" target="_blank" style="color: var(--primary); text-decoration: none;">송파구 외벽누수</a> ·
+            <a href="/?k=%EC%98%B9%EC%A7%84%EA%B5%B8-%EC%99%B8%EB%B2%BD%EB%B3%B4%EC%88%98" target="_blank" style="color: var(--primary); text-decoration: none;">옹진군 외벽보수</a> ·
+            <a href="/?k=%EB%B6%80%EC%B2%9C%EC%8B%9C-%EC%B0%BD%ED%8B%80%EB%88%84%EC%88%98" target="_blank" style="color: var(--primary); text-decoration: none;">부천시 창틀누수</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
