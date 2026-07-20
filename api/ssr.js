@@ -48,6 +48,40 @@ function getRegionContextText(representativeRegion) {
   return contexts[representativeRegion] || contexts['기본'];
 }
 
+// 사업자 프로필 데이터 분리 정의
+const businessProfiles = {
+  default: {
+    companyName: "올케어",
+    ownerName: "김동명",
+    businessNumber: "224-77-00461",
+    phone: "050-7871-3550",
+    phoneHref: "tel:05078713550",
+    kakaoUrl: "http://pf.kakao.com/_LRmxfX"
+  },
+  gyeonggiZero: {
+    companyName: "경기제로도장방수",
+    ownerName: "최우영",
+    businessNumber: "724-71-00799",
+    phone: "010-7776-3029",
+    phoneHref: "tel:01077763029",
+    kakaoUrl: "http://pf.kakao.com/_xkhUfX"
+  }
+};
+
+// 지역명 기준으로 해당 권역의 사업자 프로필을 매칭하여 반환
+function resolveBusinessProfileByRegion(regionName) {
+  if (!regionName) return businessProfiles.default;
+  const cleaned = regionName.trim();
+  const representativeRegion = REGION_MAP[cleaned] || cleaned;
+
+  // 경기제로도장방수(gyeonggiZero) 예외 프로필 적용 10개 권역 (화성 산하의 동탄 포함)
+  const exceptionRegions = ['광주', '양평', '여주', '이천', '용인', '안성', '오산', '화성', '동탄', '평택'];
+  if (exceptionRegions.includes(representativeRegion)) {
+    return businessProfiles.gyeonggiZero;
+  }
+  return businessProfiles.default;
+}
+
 // 허용된 작업명 목록
 const ALLOWED_TASKS = ['창틀코킹', '창틀누수', '빗물누수', '창틀실리콘', '샷시실리콘', '외벽보수', '옥상방수', '외벽방수', '외벽누수', '옥상누수'];
 
@@ -715,10 +749,16 @@ module.exports = (req, res) => {
       );
 
       // ── 15. Footer 사업자 정보 동적 유지 ─────────────────────────────
+      const profile = resolveBusinessProfileByRegion(region);
       html = html.replace(
         /<span class="footer-company-name">상호명: 올케어 서비스<\/span> \| <span class="footer-company-owner">사업자명: 김재현<\/span> \| <span class="footer-company-number">사업자등록번호: 405-15-02677<\/span>/,
-        `<span class="footer-company-name">상호명: 올케어</span> | <span class="footer-company-owner">사업자명: 김동명</span> | <span class="footer-company-number">사업자등록번호: 224-77-00461</span>`
+        `<span class="footer-company-name">상호명: ${profile.companyName}</span> | <span class="footer-company-owner">사업자명: ${profile.ownerName}</span> | <span class="footer-company-number">사업자등록번호: ${profile.businessNumber}</span>`
       );
+
+      // ── 16. 연락처 및 카카오톡 채널 동적 분기 ─────────────────────────────
+      html = html.replace(/href="tel:050-7871-3550"/g, `href="${profile.phoneHref}"`);
+      html = html.replace(/050-7871-3550/g, profile.phone);
+      html = html.replace(/http:\/\/pf\.kakao\.com\/_LRmxfX/g, profile.kakaoUrl);
 
     } else {
       // ── 기본 메인페이지 ───────────────────────────────────────────
