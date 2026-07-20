@@ -789,6 +789,12 @@ const server = http.createServer((req, res) => {
         /(<p[^>]*data-keyword="region-task-contact-desc"[^>]*>)[\s\S]*?(<\/p>)/,
         `$1${content.contactDesc}$2`
       );
+
+      // ── 15. Footer 사업자 정보 동적 유지 ─────────────────────────────
+      html = html.replace(
+        /<span class="footer-company-name">상호명: 올케어 서비스<\/span> \| <span class="footer-company-owner">사업자명: 김재현<\/span> \| <span class="footer-company-number">사업자등록번호: 405-15-02677<\/span>/,
+        `<span class="footer-company-name">상호명: 올케어</span> | <span class="footer-company-owner">사업자명: 김동명</span> | <span class="footer-company-number">사업자등록번호: 224-77-00461</span>`
+      );
         } else {
           html = html.replace(/CANONICAL_PLACEHOLDER/g, 'https://www.rainguard.co.kr/');
           const defaultAlts = getPortfolioAlts('기본', '');

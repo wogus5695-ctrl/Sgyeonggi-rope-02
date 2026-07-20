@@ -83,6 +83,14 @@ function initDynamicKeywords() {
     // 4. Open Graph 태그 업데이트
     updateMetaProperty('og:title', `${regionTask} | 창틀·샷시·외벽 빗물누수 전문 올케어`);
     updateMetaProperty('og:description', `${regionTask}, 창틀누수, 샷시 실리콘, 외벽 크랙, 외벽보수 관련 빗물 유입 문제를 전화 상담으로 안내합니다.`);
+
+    // 5. Footer 사업자 정보 동적 유지
+    const nameEl = document.querySelector('.footer-company-name');
+    const ownerEl = document.querySelector('.footer-company-owner');
+    const numberEl = document.querySelector('.footer-company-number');
+    if (nameEl) nameEl.textContent = '상호명: 올케어';
+    if (ownerEl) ownerEl.textContent = '사업자명: 김동명';
+    if (numberEl) numberEl.textContent = '사업자등록번호: 224-77-00461';
   } else {
     // 기본 메인페이지 상태 메타 정보
     document.title = `서울·경기 빗물누수·창틀코킹 전문 진단 | 올케어`;
@@ -90,6 +98,14 @@ function initDynamicKeywords() {
     updateMetaTag('keywords', `창틀누수, 창틀코킹, 샷시 실리콘, 외벽 크랙, 외벽보수, 서울 창틀코킹, 경기 창틀코킹, 올케어`);
     updateMetaProperty('og:title', `서울·경기 빗물누수·창틀코킹 전문 진단 | 올케어`);
     updateMetaProperty('og:description', `서울·경기 창틀누수, 샷시 실리콘, 외벽 크랙, 외벽보수 관련 빗물 유입 문제를 전화 상담으로 안내합니다. 올케어 전문 진단팀.`);
+
+    // 5. Footer 사업자 정보 메인주소용 수정
+    const nameEl = document.querySelector('.footer-company-name');
+    const ownerEl = document.querySelector('.footer-company-owner');
+    const numberEl = document.querySelector('.footer-company-number');
+    if (nameEl) nameEl.textContent = '상호명: 올케어 서비스';
+    if (ownerEl) ownerEl.textContent = '사업자명: 김재현';
+    if (numberEl) numberEl.textContent = '사업자등록번호: 405-15-02677';
   }
 
   // 11개 섹션별 동적 바인딩 대응
