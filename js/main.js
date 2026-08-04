@@ -27,8 +27,8 @@ const businessProfiles = {
     companyName: "올케어",
     ownerName: "김동명",
     businessNumber: "224-77-00461",
-    phone: "050-7871-3550",
-    phoneHref: "tel:05078713550",
+    phone: "010-8460-1530",
+    phoneHref: "tel:01084601530",
     kakaoUrl: "http://pf.kakao.com/_LRmxfX"
   },
   gyeonggiZero: {
@@ -66,7 +66,7 @@ function resolveBusinessProfileByRegion(regionName) {
 }
 
 // 전화번호 중앙 관리 변수 (이곳의 값만 변경하면 사이트 전체 전화번호가 업데이트됩니다)
-const COMPANY_PHONE = '050-7871-3550';
+const COMPANY_PHONE = '010-8460-1530';
 
 /**
  * 사이트 내의 모든 대표 전화번호 텍스트 및 링크를 중앙 변수 기반으로 업데이트합니다.

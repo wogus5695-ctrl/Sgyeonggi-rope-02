@@ -75,8 +75,8 @@ const businessProfiles = {
     companyName: "올케어",
     ownerName: "김동명",
     businessNumber: "224-77-00461",
-    phone: "050-7871-3550",
-    phoneHref: "tel:05078713550",
+    phone: "010-8460-1530",
+    phoneHref: "tel:01084601530",
     kakaoUrl: "http://pf.kakao.com/_LRmxfX"
   },
   gyeonggiZero: {
@@ -832,8 +832,8 @@ const server = http.createServer((req, res) => {
       );
 
       // ── 16. 연락처 및 카카오톡 채널 동적 분기 ─────────────────────────────
-      html = html.replace(/href="tel:050-7871-3550"/g, `href="${profile.phoneHref}"`);
-      html = html.replace(/050-7871-3550/g, profile.phone);
+      html = html.replace(/href="tel:010-8460-1530"/g, `href="${profile.phoneHref}"`);
+      html = html.replace(/010-8460-1530/g, profile.phone);
       html = html.replace(/http:\/\/pf\.kakao\.com\/_LRmxfX/g, profile.kakaoUrl);
         } else {
           html = html.replace(/CANONICAL_PLACEHOLDER/g, 'https://www.rainguard.co.kr/');
