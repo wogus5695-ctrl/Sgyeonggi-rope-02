@@ -613,6 +613,13 @@ module.exports = (req, res) => {
     }
 
     let rawK = req.query.k || '';
+    if (rawK && (rawK.includes('안세시') || rawK.includes('%EC%95%88%EC%84%B8%EC%8B%9C'))) {
+      const decodedK = decodeURIComponent(rawK);
+      const correctedK = decodedK.replace(/안세시/g, '안성시');
+      res.writeHead(301, { 'Location': `/?k=${encodeURIComponent(correctedK)}` });
+      res.end();
+      return;
+    }
     const parsed = parseKeyword(rawK);
 
     if (parsed) {

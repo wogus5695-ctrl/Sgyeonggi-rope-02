@@ -661,6 +661,13 @@ const server = http.createServer((req, res) => {
           try {
             const urlObj = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
             kValue = urlObj.searchParams.get('k') || '';
+            if (kValue && (kValue.includes('안세시') || kValue.includes('%EC%95%88%EC%84%B8%EC%8B%9C'))) {
+              const decodedK = decodeURIComponent(kValue);
+              const correctedK = decodedK.replace(/안세시/g, '안성시');
+              res.writeHead(301, { 'Location': `/?k=${encodeURIComponent(correctedK)}` });
+              res.end();
+              return;
+            }
           } catch (e) {}
         }
 
