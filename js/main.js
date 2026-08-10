@@ -35,8 +35,8 @@ const businessProfiles = {
     companyName: "경기제로도장방수",
     ownerName: "최우영",
     businessNumber: "724-71-00799",
-    phone: "010-7776-3029",
-    phoneHref: "tel:01077763029",
+    phone: "050-7871-3590",
+    phoneHref: "tel:05078713590",
     kakaoUrl: "http://pf.kakao.com/_xkhUfX"
   }
 };
