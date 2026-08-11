@@ -114,6 +114,26 @@ function getRelatedTasks(currentTask) {
   return allTasks.filter(t => t !== currentTask).slice(0, 4);
 };
 
+// 사업자 프로필 데이터 분리 정의
+const businessProfiles = {
+  default: {
+    companyName: "올케어",
+    ownerName: "김동명",
+    businessNumber: "224-77-00461",
+    phone: "010-8460-1530",
+    phoneHref: "tel:01084601530",
+    kakaoUrl: "http://pf.kakao.com/_LRmxfX"
+  },
+  gyeonggiZero: {
+    companyName: "경기제로도장방수",
+    ownerName: "최우영",
+    businessNumber: "724-71-00799",
+    phone: "050-7871-3590",
+    phoneHref: "tel:05078713590",
+    kakaoUrl: "http://pf.kakao.com/_xkhUfX"
+  }
+};
+
 // 지역명 기준으로 해당 권역의 사업자 프로필을 매칭하여 반환
 function resolveBusinessProfileByRegion(regionName) {
   if (!regionName) return businessProfiles.default;
