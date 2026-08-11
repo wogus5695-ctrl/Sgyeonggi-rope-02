@@ -362,71 +362,14 @@ function buildDynamicMeta(region, task, rawK) {
  * 작업명별 포트폴리오 이미지 alt 텍스트 세트 반환
  */
 function getPortfolioAlts(task, regionTask) {
-  const baseMap = {
-    '외벽보수': [
-      { before: '콘크리트 균열 보수 작업 전 상태', after: '콘크리트 균열 충진 및 방수 마감 후 상태' },
-      { before: '노후 창틀 실리콘 들뜸 및 균열 상태', after: '노후 실리콘 제거 후 친환경 실란트 재시공 상태' },
-      { before: '외벽 미세 크랙 빗물 누수 유입 구간', after: '외벽 크랙 보수재 충진 및 방수 도포 후 완료' },
-    ],
-    '빗물누수': [
-      { before: '빗물이 유입되는 외벽 균열 상태', after: '외벽 크랙 방수 실링 처리 후 누수 차단 완료' },
-      { before: '창틀 주변 실리콘 노화로 인한 틈새', after: '창호 전용 실리콘 광폭 코킹 시공 후 완료' },
-      { before: '외벽 적벽돌 줄눈 부식 및 균열 구간', after: '부식된 줄눈 제거 후 방수 몰탈 마감 상태' },
-    ],
-    '창틀코킹': [
-      { before: '기존 외부 코킹 실리콘 들뜸 및 갈라짐', after: '노후 실리콘 완전 제거 후 정석 코킹 완료' },
-      { before: '창틀과 외벽 접합부 실리콘 풍화 상태', after: '프라이머 도포 후 고접착 실리콘 실링 상태' },
-      { before: '창틀 상부 콘크리트 외벽 미세 크랙', after: '외벽 균열 보수 및 방수 코팅 처리 완료' },
-    ],
-    '창틀누수': [
-      { before: '창틀 하부 빗물 역류 및 물고임 현장', after: '하부 실리콘 방수 코킹 및 샷시 물구멍 정비 후' },
-      { before: '샷시 프레임과 골조 사이 유격 상태', after: '우레탄 폼 충진 및 외부 실리콘 광폭 마감 상태' },
-      { before: '외벽 크랙을 통해 창틀로 흐르는 누수 경로', after: '외벽 균열부 메움 및 발수제 도포 후 완료' },
-    ],
-    '창틀실리콘': [
-      { before: '햇빛에 노화되어 갈라진 창틀 실리콘', after: '삭은 실리콘 제거 후 고탄성 방수 실란트 마감' },
-      { before: '창틀 외부 실리콘 접착 불량으로 들뜬 틈', after: '접착면 이물질 청소 후 실리콘 밀착 도포 완료' },
-      { before: '창호 주변 콘크리트 옹벽 균열 상태', after: '옹벽 균열 보수 및 방수 실링 처리 완료' },
-    ],
-    '샷시실리콘': [
-      { before: '샷시 프레임 주변 실리콘 박리 및 벌어짐', after: '창호 전용 고접착 실리콘 광폭 코킹 완료' },
-      { before: '샷시 접합부 실리콘 노후화 전경', after: '기존 실리콘 탈거 후 고성능 방수 실란트 마감' },
-      { before: '샷시 상단 콘크리트 외벽 균열 구간', after: '외벽 균열 크랙 보수 및 방수 처리 완료' },
-    ],
-    '옥상방수': [
-      { before: '옥상 바닥 우레탄 들뜸 및 균열 상태', after: '우레탄 방수 도포 및 조인트 보강 완료' },
-      { before: '옥상 배수구 주변 콘크리트 박리 현장', after: '배수 조인트 정리 후 고탄성 방수 마감' },
-      { before: '옥상 난간 조인트 균열 및 누수 지점', after: '난간 크랙 메움 및 방수 코팅 완료' },
-    ],
-    '옥상누수': [
-      { before: '옥상 슬라브 바닥 균열 누수 유입로', after: '슬라브 크랙 보수재 충진 및 방수 마감' },
-      { before: '옥상 조인트 방수층 균열 및 들뜸', after: '조인트 탈거 후 고접착 우레탄 실링 완료' },
-      { before: '옥상 선홈통 주변 방수 취약 지점', after: '배수 유도 장치 및 코킹 마감 상태' },
-    ],
-    '외벽방수': [
-      { before: '건물 콘크리트 외벽 균열 및 도막 탈락', after: '크랙 보수 및 침투성 외벽 방수 도포 후' },
-      { before: '외벽 적벽돌 메지 부식 및 실크랙', after: '메지 균열 메움 및 투명 발수제 도포 완료' },
-      { before: '고층 외벽 창호 경계면 코킹 손상', after: '로프 접근 노후 실리콘 제거 후 재코킹' },
-    ],
-    '외벽누수': [
-      { before: '외벽 균열부 빗물 흡수 및 습기 흔적', after: '균열 충진 및 외벽 표면 방수 코팅 완료' },
-      { before: '창틀 상부 콘크리트 인장 균열 지점', after: '상부 옹벽 균열 보수 및 방수 마감 상태' },
-      { before: '외벽 드라이비트 이음새 틈새 벌어짐', after: '드라이비트 조인트 실링 및 방수 보강 완료' },
-    ],
-  };
-  const alts = baseMap[task] || [
-    { before: '외벽 균열 보수 시공 전 사진', after: '외벽 균열 보수 시공 후 사진' },
-    { before: '창틀 실리콘 재시공 전 사진', after: '창틀 실리콘 재시공 후 사진' },
-    { before: '샷시 접합부 보수 시공 전 사진', after: '샷시 접합부 보수 시공 후 사진' },
-  ];
-  const prefix = regionTask ? `${regionTask} ` : '';
+  const rt = regionTask || '올케어';
   return {
-    before1: `${prefix}상담 사례 - ${alts[0].before}`,
-    after1:  `${prefix}상담 사례 - ${alts[0].after}`,
-    before2: `${prefix}상담 사례 - ${alts[1].before}`,
-    after2:  `${prefix}상담 사례 - ${alts[1].after}`,
-    before3: `${prefix}상담 사례 - ${alts[2].before}`,
-    after3:  `${prefix}상담 사례 - ${alts[2].after}`,
+    before1: `${rt} 작업 전 상태 점검 및 확인`,
+    after1: `${rt} 작업 현장 시공 마감 완료`,
+    before2: `${rt} 점검 이미지 및 누수 분석`,
+    after2: `${rt} 보수 사례 실리콘 코킹 마감`,
+    before3: `${rt} 노후 균열 및 들뜸 조사`,
+    after3: `${rt} 빗물 누수 차단 최종 마감`
   };
 }
 
@@ -653,11 +596,113 @@ module.exports = (req, res) => {
       );
 
       // ── 4. OG Image ──────────────────────────────────────────────
-      const ogImageUrl = `https://www.rainguard.co.kr/images/og-thumbnail.jpg?v=2`;
+      let ogImageFile = 'og-thumbnail.jpg';
+      if (['창틀코킹', '창틀실리콘', '샷시실리콘'].includes(task)) {
+        ogImageFile = 'og-window.jpg';
+      } else if (['창틀누수', '빗물누수'].includes(task)) {
+        ogImageFile = 'og-waterproof.jpg';
+      } else if (['외벽보수', '외벽방수', '외벽누수'].includes(task)) {
+        ogImageFile = 'og-wall.jpg';
+      } else if (['옥상방수', '옥상누수'].includes(task)) {
+        ogImageFile = 'og-waterproof.jpg';
+      }
+      const ogImageUrl = `https://www.rainguard.co.kr/images/${ogImageFile}`;
       html = html.replace(
         /<meta property="og:image" data-keyword="region-task-og-image" content="[^"]*">/,
         `<meta property="og:image" data-keyword="region-task-og-image" content="${ogImageUrl}">`
       );
+      html = html.replace(
+        /<link rel="image_src" href="[^"]*">/,
+        `<link rel="image_src" href="${ogImageUrl}">`
+      );
+
+      // ── 4b. 구조화 데이터(JSON-LD) 생성 및 치환 ────────────────────────────
+      const schemaProfile = resolveBusinessProfileByRegion(region);
+      const schemaTelephone = schemaProfile.companyName === '경기제로도장방수' ? '010-7776-3029' : '010-8460-1530';
+
+      const schemaJsonLDs = [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "올케어 홈",
+              "item": "https://www.rainguard.co.kr/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": task,
+              "item": `https://www.rainguard.co.kr/?k=${encodeURIComponent(rawK)}`
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": `${region} ${task}`,
+          "areaServed": region,
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": schemaProfile.companyName,
+            "telephone": schemaTelephone
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": content.faq1Q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": content.faq1Answer
+              }
+            },
+            {
+              "@type": "Question",
+              "name": content.faq2Q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": content.faq2Answer
+              }
+            },
+            {
+              "@type": "Question",
+              "name": content.faq3Q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": content.faq3Answer
+              }
+            },
+            {
+              "@type": "Question",
+              "name": content.faq4Q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": content.faq4Answer
+              }
+            },
+            {
+              "@type": "Question",
+              "name": content.faq5Q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": content.faq5Answer
+              }
+            }
+          ]
+        }
+      ];
+
+      const schemaScripts = schemaJsonLDs.map(schema => {
+        return `<script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n</script>`;
+      }).join('\n');
+
+      html = html.replace('<!-- SCHEMA_PLACEHOLDER -->', schemaScripts);
 
       // ── 5. canonical & og:url ─────────────────────────────────────
       html = html.replace(/CANONICAL_PLACEHOLDER/g, meta.canonical);
