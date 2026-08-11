@@ -45,6 +45,52 @@ function getRegionContextText(representativeRegion, regionName) {
   };
 
   return contexts[areaType];
+}
+
+function getNearbyRegions(region, representativeRegion) {
+  const subRegionMap = {
+    '역삼동': ['논현동', '삼성동', '대치동', '개포동'],
+    '잠실동': ['신천동', '삼전동', '방이동', '석촌동'],
+    '분당': ['판교', '야탑동', '서현동', '수내동', '정자동'],
+    '동탄': ['반송동', '석우동', '청계동', '영천동'],
+    '곤지암읍': ['초월읍', '도척면', '실촌읍', '쌍령동'],
+    '가남읍': ['점동면', '흥천면', '여주', '오학동'],
+    '양평읍': ['강상면', '강하면', '옥천면', '용문면']
+  };
+
+  if (subRegionMap[region]) {
+    return subRegionMap[region];
+  }
+
+  const repMap = {
+    '서울': ['서초구', '송파구', '강남구', '마포구', '용산구'],
+    '인천': ['부평구', '남동구', '연수구', '미추홀구', '서구'],
+    '수원': ['영통구', '장안구', '권선구', '팔달구', '인계동'],
+    '용인': ['수지구', '기흥구', '처인구', '죽전동', '동백동'],
+    '화성': ['동탄동', '병점동', '봉담읍', '향남읍', '남양읍'],
+    '오산': ['수청동', '궐동', '원동', '세교동', '갈곶동'],
+    '평택': ['비전동', '고덕동', '동삭동', '용이동', '서정동'],
+    '안성': ['공도읍', '대덕면', '아양동', '석정동', '옥산동'],
+    '이천': ['창전동', '증포동', '부발읍', '마장면', '송정동'],
+    '안산': ['고잔동', '선부동', '월피동', '본오동', '초지동'],
+    '시흥': ['정왕동', '배곧동', '은행동', '대야동', '신천동'],
+    '부천': ['중동', '상동', '심곡동', '역곡동', '소사본동'],
+    '광명': ['철산동', '하안동', '소하동', '광명동', '일직동'],
+    '군포': ['산본동', '금정동', '당동', '부곡동', '송부동'],
+    '안양': ['평촌동', '호계동', '비산동', '관양동', '안양동'],
+    '과천': ['별양동', '갈현동', '문원동', '과천동', '부림동'],
+    '의왕': ['내손동', '오전동', '고천동', '청계동', '포일동'],
+    '양평': ['양평읍', '용문면', '개군면', '강상면', '서종면'],
+    '광주': ['경안동', '송정동', '쌍령동', '초월읍', '곤지암읍'],
+    '여주': ['여흥동', '오학동', '가남읍', '점동면', '흥천면']
+  };
+
+  return repMap[representativeRegion] || ['수원', '용인', '화성', '안산', '평택'];
+}
+
+function getRelatedTasks(currentTask) {
+  const allTasks = ['창틀코킹', '창틀누수', '빗물누수', '창틀실리콘', '샷시실리콘', '외벽보수', '옥상방수', '외벽방수', '외벽누수', '옥상누수'];
+  return allTasks.filter(t => t !== currentTask).slice(0, 4);
 };
 
 // 지역명 기준으로 해당 권역의 사업자 프로필을 매칭하여 반환
@@ -764,6 +810,26 @@ module.exports = (req, res) => {
       html = html.replace(
         /(<h2[^>]*data-keyword="region-task-faq-title"[^>]*>)[\s\S]*?(<\/h2>)/,
         `$1${task} 관련 궁금증 해결$2`
+      );
+
+      // ── 8d. 하단 관련 작업 및 주변 지역 내부 링크 치환 ──────────────────
+      const relatedTasks = getRelatedTasks(task);
+      const relatedHtml = relatedTasks.map(t => {
+        return `<a href="?k=${encodeURIComponent(region + '-' + t)}">${region} ${t}</a>`;
+      }).join('\n            ');
+
+      const nearbyRegions = getNearbyRegions(region, representativeRegion);
+      const nearbyHtml = nearbyRegions.map(r => {
+        return `<a href="?k=${encodeURIComponent(r + '-' + task)}">${r} ${task}</a>`;
+      }).join('\n            ');
+
+      html = html.replace(
+        /(<div[^>]*data-keyword="region-task-related-links"[^>]*>)[\s\S]*?(<\/div>)/,
+        `$1\n            ${relatedHtml}\n          $2`
+      );
+      html = html.replace(
+        /(<div[^>]*data-keyword="region-task-nearby-links"[^>]*>)[\s\S]*?(<\/div>)/,
+        `$1\n            ${nearbyHtml}\n          $2`
       );
 
       // ── 9. PROCESS 섹션 설명 — 작업명별 공정 흐름 ───────────────

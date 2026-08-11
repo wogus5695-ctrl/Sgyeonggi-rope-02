@@ -3553,4 +3553,60 @@ button {
   }
 }
 
+/* Internal Links Section styles */
+.internal-links-section {
+  background-color: var(--bg-white);
+  padding: 40px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.internal-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.links-col {
+  text-align: left;
+}
+
+.links-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.links-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.links-list a {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.links-list a:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary-border);
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .internal-links-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
 
