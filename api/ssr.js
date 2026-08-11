@@ -259,7 +259,7 @@ function getTaskContent(task, regionTask, region) {
         faq4Answer: '외벽 균열이나 마감 손상으로 들어온 빗물이 샷시 주변을 타고 창틀 하부나 실내 벽지로 나타나는 경우가 있습니다.',
         faq5Q: '전화로 대략 상담이 가능한가요?',
         faq5Answer: '가능합니다. 지역, 증상, 사진 여부를 확인한 뒤 방문 가능 여부와 기본 안내를 도와드립니다.',
-        contactTitle: '빗물누수 원인 상담, 원인부터 확인하세요',
+        contactTitle: `${r} ${task} 실시간 견적`,
         contactDesc: '젖은 위치만 보지 않고, 창틀·샷시·외벽 주변 유입 경로를 함께 확인합니다.'
       };
   }
@@ -697,6 +697,28 @@ module.exports = (req, res) => {
       html = html.replace(
         /(<p[^>]*data-keyword="region-context"[^>]*>)[\s\S]*?(<\/p>)/,
         `$1${regionContextText}$2`
+      );
+
+      // ── 8c. SEO Quick Links 및 FAQ 타이틀 치환 ────────────────────────
+      html = html.replace(
+        /(<nav[^>]*data-keyword="seo-quick-links"[^>]*>)/,
+        `<nav class="seo-quick-links" data-keyword="seo-quick-links" aria-label="${region} ${task} 핵심 메뉴">`
+      );
+      html = html.replace(
+        /(<a[^>]*data-keyword="seo-link-process"[^>]*>)[\s\S]*?(<\/a>)/,
+        `$1${content.processTitle}$2`
+      );
+      html = html.replace(
+        /(<a[^>]*data-keyword="seo-link-faq"[^>]*>)[\s\S]*?(<\/a>)/,
+        `$1${task} 관련 궁금증 해결$2`
+      );
+      html = html.replace(
+        /(<a[^>]*data-keyword="seo-link-quote"[^>]*>)[\s\S]*?(<\/a>)/,
+        `$1${region} ${task} 실시간 견적$2`
+      );
+      html = html.replace(
+        /(<h2[^>]*data-keyword="region-task-faq-title"[^>]*>)[\s\S]*?(<\/h2>)/,
+        `$1${task} 관련 궁금증 해결$2`
       );
 
       // ── 9. PROCESS 섹션 설명 — 작업명별 공정 흐름 ───────────────

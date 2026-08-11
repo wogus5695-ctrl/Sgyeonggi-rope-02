@@ -3511,4 +3511,46 @@ button {
   }
 }
 
+/* SEO Quick Links styles */
+.seo-quick-links {
+  background-color: var(--bg-light);
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px 0;
+  text-align: center;
+}
+
+.seo-quick-links .container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.seo-quick-links a {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.seo-quick-links a:hover {
+  color: var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+@media (max-width: 768px) {
+  .seo-quick-links {
+    padding: 10px 0;
+  }
+  .seo-quick-links .container {
+    gap: 12px;
+  }
+  .seo-quick-links a {
+    font-size: 12px;
+  }
+}
+
 
