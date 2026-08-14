@@ -140,8 +140,8 @@ function resolveBusinessProfileByRegion(regionName) {
   const cleaned = regionName.trim();
   const representativeRegion = REGION_MAP[cleaned] || cleaned;
 
-  // 경기제로도장방수(gyeonggiZero) 예외 프로필 적용 10개 권역 (화성 산하의 동탄 포함)
-  const exceptionRegions = ['광주', '양평', '여주', '이천', '용인', '안성', '오산', '화성', '동탄', '평택'];
+  // 경기제로도장방수(gyeonggiZero) 예외 프로필 적용 11개 권역 (화성 산하의 동탄 포함)
+  const exceptionRegions = ['광주', '양평', '여주', '이천', '용인', '안성', '오산', '화성', '동탄', '평택', '수원'];
   if (exceptionRegions.includes(representativeRegion)) {
     return businessProfiles.gyeonggiZero;
   }
