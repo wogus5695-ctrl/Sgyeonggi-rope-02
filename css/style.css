@@ -1509,7 +1509,7 @@ button {
   user-select: none;
   cursor: ew-resize;
   background-color: #E2E8F0;
-  touch-action: pan-y;
+  touch-action: none;
 }
 
 .slider-img {

@@ -336,19 +336,11 @@ function initBeforeAfterSliders() {
     const startResize = (e) => {
       isResizing = true;
       e.preventDefault();
-      if (slider.setPointerCapture) {
-        slider.setPointerCapture(e.pointerId);
-      }
       setPosition(e.clientX);
     };
 
-    const stopResize = (e) => {
+    const stopResize = () => {
       isResizing = false;
-      if (slider.releasePointerCapture) {
-        try {
-          slider.releasePointerCapture(e.pointerId);
-        } catch (err) {}
-      }
     };
 
     const resize = (e) => {
@@ -356,11 +348,11 @@ function initBeforeAfterSliders() {
       setPosition(e.clientX);
     };
 
-    // Use unified PointerEvents
+    // Use unified PointerEvents with window binding
     slider.addEventListener('pointerdown', startResize);
-    slider.addEventListener('pointermove', resize);
-    slider.addEventListener('pointerup', stopResize);
-    slider.addEventListener('pointercancel', stopResize);
+    window.addEventListener('pointermove', resize);
+    window.addEventListener('pointerup', stopResize);
+    window.addEventListener('pointercancel', stopResize);
   });
 }
 
