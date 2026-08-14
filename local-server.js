@@ -97,7 +97,7 @@ function getRegionContextText(representativeRegion, regionName) {
   const seoulRegions = ['서울'];
   const incheonRegions = ['인천', '강화군', '옹진군'];
   const gyeonggiOuterRegions = ['양평', '여주', '광주'];
-  const gyeonggiCityRegions = ['수원', '용인', '화성', '동탄', '평택', '오산', '안성', '이천', '안산', '시흥', '부천', '광명', '군포', '안양', '과천', '의왕'];
+  const gyeonggiCityRegions = ['수원', '성남', '하남', '용인', '화성', '동탄', '평택', '오산', '안성', '이천', '안산', '시흥', '부천', '광명', '군포', '안양', '과천', '의왕'];
   
   if (seoulRegions.includes(representativeRegion)) {
     areaType = 'SEOUL';
@@ -110,10 +110,10 @@ function getRegionContextText(representativeRegion, regionName) {
   }
 
   const contexts = {
-    'SEOUL': `${displayRegion}은 상가, 오피스텔, 다세대 건물이 밀집한 서울 도심권 지역이라 창틀 주변 실리콘 노후나 외벽 균열이 누수 원인으로 이어지는 경우가 많습니다. 고층 주거지와 오피스텔 밀집도가 높은 환경적 특징에 맞춰 물길 차단 솔루션을 제안합니다.`,
-    'INCHEON': `${displayRegion}은 해풍과 염분 섞인 습기 영향으로 인해 외벽 마감재나 창틀 실리콘의 경화 및 노후가 빠르게 나타날 수 있습니다. 들이치는 거센 빗물 유입 가능 구간을 함께 확인하는 것이 필수적입니다.`,
-    'GYEONGGI_CITY': `${displayRegion}은 아파트 단지, 대형 상가, 공장형 건물이 함께 넓게 분포하여 창틀 주변 틈새와 외벽 크랙, 그리고 옥상 방수층 상태를 통합적으로 진단하고 보강하는 것이 중요합니다.`,
-    'GYEONGGI_OUTER': `${displayRegion}은 단독주택, 전원형 빌라, 저층 상가와 공장형 건물 등이 분산 배치되어 있어, 옥상 방수층의 노후도와 거친 외벽 마감 상태의 결함을 함께 확인하는 과정이 중요합니다.`
+    'SEOUL': `${displayRegion} 지역은 상가, 오피스텔, 다세대, 빌딩이 함께 분포해 창틀 주변 실리콘 노후와 외벽 균열을 함께 확인하는 것이 중요합니다.`,
+    'INCHEON': `${displayRegion} 지역은 해풍과 습기 영향으로 외벽 마감재나 창틀 실리콘의 노후가 빠르게 나타날 수 있어 빗물 유입 가능 구간을 함께 확인하는 것이 좋습니다.`,
+    'GYEONGGI_CITY': `${displayRegion} 지역은 아파트, 상가, 공장형 건물이 함께 분포해 외벽과 옥상, 창틀 주변 상태를 함께 확인하는 것이 중요합니다.`,
+    'GYEONGGI_OUTER': `${displayRegion} 지역은 단독주택, 전원주택, 저층 상가형 건물이 함께 분포해 옥상 방수층과 외벽 마감 상태를 같이 확인하는 것이 중요합니다.`
   };
 
   return contexts[areaType];
