@@ -6,6 +6,7 @@
     { "src": "*.txt", "use": "@vercel/static" },
     { "src": "favicon.ico", "use": "@vercel/static" },
     { "src": "css/**", "use": "@vercel/static" },
+    { "src": "js/**", "use": "@vercel/static" },
     { "src": "images/**", "use": "@vercel/static" }
   ],
   "redirects": [
