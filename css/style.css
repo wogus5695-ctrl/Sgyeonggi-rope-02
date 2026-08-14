@@ -1509,6 +1509,7 @@ button {
   user-select: none;
   cursor: ew-resize;
   background-color: #E2E8F0;
+  touch-action: pan-y;
 }
 
 .slider-img {
@@ -1540,7 +1541,7 @@ button {
   background-color: #FFFFFF;
   z-index: 10;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  pointer-events: none;
+  pointer-events: auto;
   transform: translateX(-50%);
   transition: left 0.05s ease-out;
 }

@@ -333,33 +333,34 @@ function initBeforeAfterSliders() {
       handle.style.left = `${percentage}%`;
     };
 
-    // 마우스 이벤트
     const startResize = (e) => {
       isResizing = true;
-      setPosition(e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0));
+      e.preventDefault();
+      if (slider.setPointerCapture) {
+        slider.setPointerCapture(e.pointerId);
+      }
+      setPosition(e.clientX);
     };
 
-    const stopResize = () => {
+    const stopResize = (e) => {
       isResizing = false;
+      if (slider.releasePointerCapture) {
+        try {
+          slider.releasePointerCapture(e.pointerId);
+        } catch (err) {}
+      }
     };
 
     const resize = (e) => {
       if (!isResizing) return;
-      const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : null);
-      if (clientX !== null) {
-        setPosition(clientX);
-      }
+      setPosition(e.clientX);
     };
 
-    // 이벤트 바인딩
-    slider.addEventListener('mousedown', startResize);
-    window.addEventListener('mouseup', stopResize);
-    window.addEventListener('mousemove', resize);
-
-    // 터치 지원 (모바일)
-    slider.addEventListener('touchstart', startResize, { passive: true });
-    window.addEventListener('touchend', stopResize);
-    window.addEventListener('touchmove', resize, { passive: true });
+    // Use unified PointerEvents
+    slider.addEventListener('pointerdown', startResize);
+    slider.addEventListener('pointermove', resize);
+    slider.addEventListener('pointerup', stopResize);
+    slider.addEventListener('pointercancel', stopResize);
   });
 }
 
