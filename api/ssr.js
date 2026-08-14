@@ -242,7 +242,7 @@ function getTaskContent(task, regionTask, region) {
         faq5Q: `상담 전 어떤 사진을 보내면 확인이 빠른가요?`,
         faq5Answer: `누수가 발생하는 실내 창틀 주변의 젖은 벽지 사진과 건물 전체 외부에서 바라본 해당 창호 전경 사진을 보내주시면 가장 정확한 상태 진단에 큰 도움이 됩니다.`,
         
-        contactTitle: `${regionTask} 상담, 비 오기 전에 예방하세요`,
+        contactTitle: `${region} ${task} 상담 문의`,
         contactDesc: '들뜸이나 갈라짐 증상을 알려주시면 기존 실리콘 제거 범위와 보수 예산에 맞는 합리적인 코킹 방안을 친절히 안내합니다.'
       };
     }
@@ -284,7 +284,7 @@ function getTaskContent(task, regionTask, region) {
         faq5Q: `상담 전 어떤 사진을 보내면 확인이 빠른가요?`,
         faq5Answer: `물이 비치거나 젖어서 색이 변한 방 안쪽 벽면 사진과 외부 창틀 결합부 사진을 보내주시면 물길 추정 및 진단 계획 수립에 매우 유용합니다.`,
         
-        contactTitle: `반복되는 ${regionTask} 해결, 종합 물길 진단`,
+        contactTitle: `${region} ${task} 상담 문의`,
         contactDesc: '비 온 뒤 내부 습기 및 누수 범위에 대해 알려주시면, 건물 상부 방수층이나 외부 크랙 등 빗물이 들어올 수 있는 여러 가능성을 짚어 상세히 조언해 드립니다.'
       };
     }
@@ -327,7 +327,7 @@ function getTaskContent(task, regionTask, region) {
         faq5Q: `상담 전 어떤 사진을 보내면 확인이 빠른가요?`,
         faq5Answer: `건물 외부 전경 사진(진입 여건 확인용)과 크랙이나 박리가 발생한 외벽 손상부 확대 사진을 촬영해 보내주시면 기술 진단에 신속히 임하겠습니다.`,
         
-        contactTitle: `${regionTask} 고공 로프 방수 설계`,
+        contactTitle: `${region} ${task} 상담 문의`,
         contactDesc: '건물 층수와 외벽 마감재(드라이비트, 타일, 조적 등)를 말씀해 주시면 로프 접근성 검토 결과 및 적정 두께의 맞춤 발수 공법을 친절히 안내합니다.'
       };
     }
@@ -360,7 +360,7 @@ function getTaskContent(task, regionTask, region) {
         faq5Q: `상담 전 어떤 사진을 보내면 확인이 빠른가요?`,
         faq5Answer: `누수 흔적이 있는 실내 벽면 사진과 건물의 전체적인 전경 뷰 사진을 함께 보내주시면 현장 장비 접근 여건 진단 및 물길 분석에 크게 도움됩니다.`,
         
-        contactTitle: `${regionTask} 원인 탐색 정밀 진단`,
+        contactTitle: `${region} ${task} 상담 문의`,
         contactDesc: '건물 외부 사진과 빗물 유입 흔적을 알려주시면, 내부로 번지는 습기 발생지와 옹벽 크랙 분석을 거쳐 합리적인 보수 솔루션을 안내합니다.'
       };
     }
@@ -403,7 +403,7 @@ function getTaskContent(task, regionTask, region) {
         faq5Q: `상담 전 어떤 사진을 보내면 확인이 빠른가요?`,
         faq5Answer: `현재 옥상 바닥의 방수 상태(부풀어 오른 부위 등) 전경 사진과 실내 천장의 누수 흔적 벽지 사진을 보내주시면 시공 계획 수립에 매우 큰 도움이 됩니다.`,
         
-        contactTitle: `${regionTask} 방수 수명 확보 진단`,
+        contactTitle: `${region} ${task} 상담 문의`,
         contactDesc: '옥상 바닥 평수와 우레탄 들뜸 상태를 사진과 함께 문의주시면, 불필요한 전체 시공 대신 내구성을 올리는 정석 면처리 및 크랙 방수 방안을 상세히 안내해 드립니다.'
       };
     }
@@ -436,7 +436,7 @@ function getTaskContent(task, regionTask, region) {
         faq5Q: '옥상 방수 공사는 시공 후 얼마 기간 주기로 보수를 해주어야 하나요?',
         faq5Answer: '보통 우레탄 방수층은 자외선 영향으로 노화되므로 약 3~5년 주기로 상도(코팅층) 재도장 관리를 해주시면 방수층 중도 두께를 보존하며 반영구적으로 깨끗하게 사용하실 수 있습니다.',
         
-        contactTitle: `${regionTask} 맞춤형 견적 설계`,
+        contactTitle: `${region} ${task} 상담 문의`,
         contactDesc: '세부적인 증상 사진이나 젖는 빈도를 알려주시면 상황에 맞는 합리적인 예방 방안을 세밀히 안내합니다.'
       };
   }
@@ -541,12 +541,12 @@ function buildDynamicMeta(region, task, rawK) {
 function getPortfolioAlts(task, regionTask) {
   const rt = regionTask || '올케어';
   return {
-    before1: `${rt} 작업 전 상태 점검 및 확인`,
-    after1: `${rt} 작업 현장 시공 마감 완료`,
-    before2: `${rt} 점검 이미지 및 누수 분석`,
-    after2: `${rt} 보수 사례 실리콘 코킹 마감`,
-    before3: `${rt} 노후 균열 및 들뜸 조사`,
-    after3: `${rt} 빗물 누수 차단 최종 마감`
+    before1: `${rt} 작업 현장`,
+    after1: `${rt} 보수 사례`,
+    before2: `${rt} 점검 이미지`,
+    after2: `${rt} 보수 사례`,
+    before3: `${rt} 작업 현장`,
+    after3: `${rt} 보수 사례`
   };
 }
 
@@ -800,6 +800,12 @@ module.exports = (req, res) => {
       const schemaJsonLDs = [
         {
           "@context": "https://schema.org",
+          "@type": "ImageObject",
+          "url": ogImageUrl,
+          "caption": `${region} ${task} 시공 이미지`
+        },
+        {
+          "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
             {
@@ -975,15 +981,15 @@ module.exports = (req, res) => {
       );
       html = html.replace(
         /(<a[^>]*data-keyword="seo-link-faq"[^>]*>)[\s\S]*?(<\/a>)/,
-        `$1${task} 관련 궁금증 해결$2`
+        `$1${task} 자주 묻는 질문$2`
       );
       html = html.replace(
         /(<a[^>]*data-keyword="seo-link-quote"[^>]*>)[\s\S]*?(<\/a>)/,
-        `$1${region} ${task} 실시간 견적$2`
+        `$1${region} ${task} 상담 문의$2`
       );
       html = html.replace(
         /(<h2[^>]*data-keyword="region-task-faq-title"[^>]*>)[\s\S]*?(<\/h2>)/,
-        `$1${task} 관련 궁금증 해결$2`
+        `$1${task} 자주 묻는 질문$2`
       );
 
       // ── 8d. 하단 관련 작업 및 주변 지역 내부 링크 치환 ──────────────────
