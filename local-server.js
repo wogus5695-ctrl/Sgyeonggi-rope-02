@@ -177,10 +177,10 @@ const businessProfiles = {
   },
   gyeonggiZero: {
     companyName: "경기제로도장방수",
-    ownerName: "최우영",
-    businessNumber: "724-71-00799",
-    phone: "050-7871-3590",
-    phoneHref: "tel:05078713590",
+    ownerName: "김재현",
+    businessNumber: "405-15-02677",
+    phone: "010-4667-5568",
+    phoneHref: "tel:01046675568",
     kakaoUrl: "http://pf.kakao.com/_xkhUfX"
   }
 };
@@ -871,7 +871,7 @@ const server = http.createServer((req, res) => {
 
       // ── 4b. 구조화 데이터(JSON-LD) 생성 및 치환 ────────────────────────────
       const schemaProfile = resolveBusinessProfileByRegion(region);
-      const schemaTelephone = schemaProfile.companyName === '경기제로도장방수' ? '010-7776-3029' : '010-8460-1530';
+      const schemaTelephone = schemaProfile.companyName === '경기제로도장방수' ? '010-4667-5568' : '010-8460-1530';
 
       const schemaJsonLDs = [
         {
