@@ -116,13 +116,19 @@ function resolveBusinessProfileByRegion(regionName) {
   return businessProfiles.default;
 }
 
-// 전화번호 중앙 관리 변수 (이곳의 값만 변경하면 사이트 전체 전화번호가 업데이트됩니다)
-const COMPANY_PHONE = '010-8460-1530';
+// 메인 페이지 전용 대표 전화번호
+const COMPANY_PHONE = '010-8189-6900';
+const COMPANY_PHONE_HREF = 'tel:01081896900';
 
 /**
- * 사이트 내의 모든 대표 전화번호 텍스트 및 링크를 중앙 변수 기반으로 업데이트합니다.
+ * 메인 페이지 내의 대표 전화번호 텍스트 및 링크를 업데이트합니다.
+ * (동적 키워드 페이지는 initDynamicKeywords에서 권역별 번호로 분기)
  */
 function initCompanyPhone() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const k = urlParams.get('k');
+  if (k) return;
+
   // 텍스트 교체 (.company-phone 클래스를 가진 모든 요소)
   document.querySelectorAll('.company-phone').forEach(el => {
     el.textContent = COMPANY_PHONE;
@@ -130,7 +136,7 @@ function initCompanyPhone() {
 
   // 전화 링크 교체 (.company-phone-link 클래스를 가진 모든 요소)
   document.querySelectorAll('.company-phone-link').forEach(el => {
-    el.href = `tel:${COMPANY_PHONE}`;
+    el.href = COMPANY_PHONE_HREF;
   });
 }
 
@@ -217,6 +223,14 @@ function initDynamicKeywords() {
     if (nameEl) nameEl.textContent = '상호명: 올케어 서비스';
     if (ownerEl) ownerEl.textContent = '사업자명: 김재현';
     if (numberEl) numberEl.textContent = '사업자등록번호: 405-15-02677';
+
+    // 메인페이지 전용 전화번호 설정
+    document.querySelectorAll('.company-phone').forEach(el => {
+      el.textContent = COMPANY_PHONE;
+    });
+    document.querySelectorAll('.company-phone-link').forEach(el => {
+      el.href = COMPANY_PHONE_HREF;
+    });
   }
 
   // 11개 섹션별 동적 바인딩 대응

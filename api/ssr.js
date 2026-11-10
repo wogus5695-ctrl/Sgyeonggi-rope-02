@@ -1097,6 +1097,12 @@ module.exports = (req, res) => {
       html = html.replace(/alt="AFTER_ALT_2"/g, `alt="${defaultAlts.after2}"`);
       html = html.replace(/alt="BEFORE_ALT_3"/g, `alt="${defaultAlts.before3}"`);
       html = html.replace(/alt="AFTER_ALT_3"/g, `alt="${defaultAlts.after3}"`);
+
+      // 메인페이지 전용 상담문의 연락처 치환 (010-8189-6900)
+      const mainPhone = '010-8189-6900';
+      const mainPhoneHref = 'tel:01081896900';
+      html = html.replace(/href="tel:010-8460-1530"/g, `href="${mainPhoneHref}"`);
+      html = html.replace(/010-8460-1530/g, mainPhone);
     }
 
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
